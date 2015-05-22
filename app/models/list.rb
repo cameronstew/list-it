@@ -4,4 +4,8 @@ class List < ActiveRecord::Base
 
   # store_accessor :items, :item
   # store_accessor :items, :quantity
+
+  def list_date
+    date.strftime('%B %d %Y')
+  end
 end
