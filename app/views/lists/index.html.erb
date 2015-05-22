@@ -1,3 +1,9 @@
-<div class="btn btn-primary">
-  <%= link_to "Create List", new_list_path %>
+
+<%= link_to "Create List", new_list_path, class: 'btn btn-primary' %>
+
+<div class="lists">
+  <h2>My lists</h2>
+  <% @lists.each do |list| %>
+    <%= link_to list.list_date, list_path(list) %>
+  <% end %>
 </div>

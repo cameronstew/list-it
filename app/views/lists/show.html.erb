@@ -2,9 +2,21 @@
   <h1>List Show</h1>
 </div>
 
+<ol class="breadcrumb">
+  <li><a href="/lists">All Lists</a></li>
+  <li class="active">List</li>
+</ol>
+
+
+
 <div class="row">
-  <% @list.items.each do |list_item| %>
-<%= list_item.quantity %>
-<%= list_item.description %>
-<% end %>
+  <ul>
+    <% @list.items.each do |list_item| %>
+    <li>
+      <%= list_item.quantity %>
+      <%= list_item.description %>
+    </li>
+    <% end %>
+  </ul>
+
 </div>
