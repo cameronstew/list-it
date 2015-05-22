@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :lists
+  resources :lists do
+    resources :emails
+  end
 
   get '/shopping/:id' => 'shopping#index'
 

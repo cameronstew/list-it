@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522161209) do
+ActiveRecord::Schema.define(version: 20150522172036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "emails", force: :cascade do |t|
+    t.string  "recipient_email"
+    t.string  "recipient_name"
+    t.string  "message"
+    t.integer "list_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string  "description"
