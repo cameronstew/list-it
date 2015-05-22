@@ -4,6 +4,8 @@
 <div class="lists">
   <h2>My lists</h2>
   <% @lists.each do |list| %>
+  <p>
     <%= link_to list.list_date, list_path(list) %>
+  </p>
   <% end %>
 </div>
