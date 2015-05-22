@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :lists
 
+  get '/shopping/:id' => 'shopping#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
