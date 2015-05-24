@@ -15,7 +15,7 @@ class EmailsController < ApplicationController
     @email.list_id = params[:list_id]
     binding.pry
     if @email.save
-      UserMailer.email_list(@email.recipient_name, @email.recipient_email, @email.list_id).deliver_now
+      ListMailer.email_list(@email.recipient_name, @email.recipient_email, @email.list_id).deliver_now
     end
     redirect_to lists_path
   end
