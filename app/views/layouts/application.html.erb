@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <span class="glyphicon glyphicon-ok"></span>
+        <span class="brand">InstaList</span>
+      </a>
+    </div>
+    <%= link_to 'My Lists', lists_path, class: "navbar-text navbar-right" %>
+      <!-- <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p> -->
+    </div>
+  </nav>
+<div class="container lists">
   <%= yield %>
 </div>
 
