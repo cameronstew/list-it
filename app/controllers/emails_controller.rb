@@ -13,7 +13,6 @@ class EmailsController < ApplicationController
     @list = List.find(params[:list_id])
     @email = Email.create(email_params)
     @email.list_id = params[:list_id]
-    binding.pry
     if @email.save
       ListMailer.email_list(@email.recipient_name, @email.recipient_email, @email.list_id).deliver_now
     end

@@ -32,7 +32,7 @@ body{
   color:green;
 }
 
-.glyphicon-ok{
+.glyphicon{
   color: green;
 }
 
@@ -46,4 +46,27 @@ body{
   border-radius: 18px;
   margin: 20%;
   color:green;
+}
+
+.page-header{
+  text-align: center;
+}
+
+.btn-primary,
+.btn-primary:hover{
+  background-color:green;
+}
+
+.list{
+  margin-bottom: 50px;
+}
+.email-list{
+  padding: 10%;
+  background-color: green;
+
+  text-align: center;
+}
+
+.email-list a{
+  color:white;
 }

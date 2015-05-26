@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @email = Email.new
   end
 
   def new
