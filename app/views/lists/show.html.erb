@@ -10,15 +10,40 @@
 
 
 <div class="row">
-  <ul>
-    <% @list.items.each do |list_item| %>
-    <li>
-      <%= list_item.quantity %>
-      <%= list_item.description %>
-    </li>
-    <% end %>
-  </ul>
+  <div class="col-md-4 col-md-offset-4">
+    <ul class="list">
+      <% @list.items.each do |list_item| %>
+      <li>
+        <%= list_item.quantity %>
+        <%= list_item.description %>
+      </li>
+      <% end %>
+    </ul>
+    <button type="button" class="btn btn-primary email-list" data-toggle="modal" data-target="#myModal">
+      <!-- <%= link_to 'Email List', new_list_email_path(@list) %> -->
+      Email List
+    </button>
+  </div>
 
 </div>
 
-<%= link_to 'Email List', new_list_email_path(@list) %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Email</h4>
+      </div>
+      <div class="modal-body">
+        <%= render('/emails/new.html.erb') %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
