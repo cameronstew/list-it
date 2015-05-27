@@ -1,4 +1,11 @@
 <% @list.items.each do |item| %>
-<%= item.quantity %>
-<%= item.description %>
+<div data-item-url="<%= item_path(item) %>">
+  <p>
+    <%= item.quantity %>
+    <%= item.description %>
+  </p>
+  <button type="button" name="button" class="got-it">Got</button>
+  <button type="button" name="button" class="skip-it">Skip It</button>
+</div>
+
 <% end  %>
