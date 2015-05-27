@@ -1,11 +1,11 @@
 $(function(){
   $('.got-it').on('click', function(){
     var url = $(this).parent().data('item-url');
-    updateItem(url, "purchased");
+    //updateItem(url, "purchased");
   });
   $('.skip-it').on('click', function(){
     var url = $(this).parent().data('item-url');
-    updateItem(url, "skipped");
+    //updateItem(url, "skipped");
   });
 });
 

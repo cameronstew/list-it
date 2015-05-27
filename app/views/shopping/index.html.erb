@@ -1,11 +1,28 @@
 <% @list.items.each do |item| %>
-<div data-item-url="<%= item_path(item) %>">
+<div class="item" data-item-url="<%= item_path(item) %>">
   <p>
     <%= item.quantity %>
     <%= item.description %>
   </p>
-  <button type="button" name="button" class="got-it">Got</button>
-  <button type="button" name="button" class="skip-it">Skip It</button>
+  <div class="buttons">
+    <button type="button" name="button" class="got-it">Got</button>
+    <button type="button" name="button" class="skip-it">Skip It</button>
+
+  </div>
 </div>
 
 <% end  %>
+
+<script type="text/javascript">
+  $(function(){
+    $('.item').first().fadeIn(2000);
+    var count = 0;
+    $('.buttons').on('click', '.got-it, .skip-it', function (e) {
+      e.preventDefault();
+      console.log($(this));
+      $(this).parent().parent().hide();
+      $(this).parent().parent().siblings().eq(count).show();
+      count++;
+    });
+  });
+</script>
