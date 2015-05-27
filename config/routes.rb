@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   resources :lists do
     resources :emails
   end
+  resources :items
 
   get '/shopping/:id' => 'shopping#index'
+  get 'shopping/status/:id' => 'items#item_status'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
