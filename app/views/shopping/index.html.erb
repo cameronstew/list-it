@@ -1,28 +1,57 @@
-<% @list.items.each do |item| %>
-<div class="item" data-item-url="<%= item_path(item) %>">
-  <p>
-    <%= item.quantity %>
-    <%= item.description %>
-  </p>
-  <div class="buttons">
-    <button type="button" name="button" class="got-it">Got</button>
-    <button type="button" name="button" class="skip-it">Skip It</button>
+<div class="shopping-items col-md-6 col-md-offset-3">
+  <% @list.items.each do |item| %>
+  <div class="item" data-item-url="<%= item_path(item) %>">
+    <p>
+      <%= item.quantity %>
+      <%= item.description %>
+    </p>
+    <div class="buttons">
+      <button type="button" name="button" class="got-it"><span class="glyphicon glyphicon-ok"></span>Got It</button>
+      <button type="button" name="button" class="skip-it"><span class="glyphicon glyphicon-remove"></span>Skip It</button>
 
+    </div>
   </div>
+
+  <% end  %>
+  <!-- <div class="begin-shopping-button col-md-6"> -->
+    <button type="button" name="button" id="begin-shopping">Begin Shopping</button>
+  <!-- </div> -->
 </div>
 
-<% end  %>
+
 
 <script type="text/javascript">
   $(function(){
-    $('.item').first().fadeIn(2000);
+
+
+
+
+    $("#begin-shopping").on('click', function() {
+      $('.item').first().fadeIn(2000);
+      $('.item').first().addClass("current");
+      $('#begin-shopping').hide();
+    //   console.log("hey");
+    // $(".shopping-items").animate(
+    //         {"right": "+=550px"},
+    //         "slow");
+    });
+
+
+
     var count = 0;
     $('.buttons').on('click', '.got-it, .skip-it', function (e) {
+
+      // $('.current').animate(
+      //         {"right": "+=250px"},
+      //         "slow");
+      //
       e.preventDefault();
       console.log($(this));
       $(this).parent().parent().hide();
-      $(this).parent().parent().siblings().eq(count).show();
+      $(this).parent().parent().siblings().eq(count).fadeIn(500);
       count++;
+
+
     });
   });
 </script>
