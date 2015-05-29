@@ -34,6 +34,7 @@ body{
 
 .glyphicon{
   color: green;
+  padding: 0 10px;
 }
 
 .new-list{
@@ -83,6 +84,13 @@ body{
   border: 2px solid green;
   border-radius: 30px;
   padding: 15%;
+}
+
+.total-list{
+  display: none;
+}
+.total-list ul{
+  text-align: left;
 }
 
 .item p{
