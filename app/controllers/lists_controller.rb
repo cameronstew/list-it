@@ -37,11 +37,11 @@ class ListsController < ApplicationController
   end
 
   def get_items
-    @list.complete = true
+    @list.shopped = true
     @list.save
 
     @items = @list.items
-    
+
     render json: @items
   end
 
