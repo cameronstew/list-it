@@ -13,6 +13,8 @@ class EmailsController < ApplicationController
     if @email.save
       ListMailer.email_list(@email.recipient_name, @email.recipient_email, @email.list_id).deliver_now
     end
+    @list.author = @email.recipient_name
+    @list.author_email = @email.recipient_email
     redirect_to lists_path
   end
 
