@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @recipient %>,</h1>
+    <p>
+      Your list has been shopped! Below are the items that were not purchased:
+    </p>
+    <ul>
+      <% @skipped_items.each do |key, item| %>
+        <li> <%= item["quantity"] %> <%= item["description"] %> </li>
+      <% end %>
+    </ul>
+    <p>Thanks!</p>
+  </body>
+</html>

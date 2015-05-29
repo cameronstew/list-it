@@ -1,8 +1,5 @@
 class EmailsController < ApplicationController
-
-  def index
-  end
-
+  # before_action :set_list
 
   def new
     @list = List.find(params[:list_id])
@@ -19,9 +16,19 @@ class EmailsController < ApplicationController
     redirect_to lists_path
   end
 
+  def skipped_items_email
+    @items = params[:items]
+    ListMailer.skipped_items_email("Cam Stewbs", "cameron.webster@gmail.com", @items).deliver_now
+    render json: "complete"
+  end
+
   private
   def email_params
     params.require(:email).permit(:recipient_email, :recipient_name, :message, :list_id)
+  end
+
+  def set_list
+    @list = List.find(params[:list_id])
   end
 
 end

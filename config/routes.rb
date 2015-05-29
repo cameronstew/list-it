@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/shopping/:id' => 'shopping#index'
   get 'shopping/status/:id' => 'items#item_status'
+  get '/lists/:id/submit' => 'lists#get_items'
+  post '/shopping/:id' => 'emails#skipped_items_email'
 
 
   # Example of regular route:

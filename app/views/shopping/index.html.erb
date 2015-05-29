@@ -1,35 +1,35 @@
 <div class="shopping-items col-md-6 col-md-offset-3">
-  <% @list.items.each do |item| %>
-  <div class="item" data-item-url="<%= item_path(item) %>">
-    <p>
-      <%= item.quantity %>
-      <%= item.description %>
-    </p>
-    <div class="buttons">
-      <button type="button" name="button" class="got-it"><span class="glyphicon glyphicon-ok"></span>Got It</button>
-      <button type="button" name="button" class="skip-it"><span class="glyphicon glyphicon-remove"></span>Skip It</button>
-
+  <button type="button" name="button" id="begin-shopping">Begin Shopping</button>
+  <div>
+    <% @list.items.each do |item| %>
+      <div class="item" data-item-url="<%= item_path(item) %>">
+        <p>
+          <%= item.quantity %>
+          <%= item.description %>
+        </p>
+        <div class="buttons">
+          <button type="button" name="button" class="got-it"><span class="glyphicon glyphicon-ok"></span>Got It</button>
+          <button type="button" name="button" class="skip-it"><span class="glyphicon glyphicon-remove"></span>Skip It</button>
+        </div>
+      </div>
+    <% end  %>
+    <div class="list-review" data-list-url="<%= list_path(@list) %>">
+      <h2>Review List</h2>
+      <ul>
+        <% @list.items.each do |item| %>
+          <% if item.status == "purchased" %>
+            <li><span class="glyphicon glyphicon-ok"></span><%= item.description %></li>
+          <% else %>
+            <li><span class="glyphicon glyphicon-remove"></span><%= item.description %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <p>
+        <button type="button" name="button" id="submit-list">Submit List</button>
+      </p>
     </div>
   </div>
-
-  <% end  %>
-  <div class="total-list">
-    <h2>Review List</h2>
-    <ul>
-      <% @list.items.each do |item| %>
-      <% if item.status == "purchased"  %>
-      <li><span class="glyphicon glyphicon-ok"></span><%= item.description %></li>
-      <% else %>
-      <li><span class="glyphicon glyphicon-remove"></span><%= item.description %></li>
-      <% end %>
-      <% end %>
-    </ul>
-
-  </div>
-    <button type="button" name="button" id="begin-shopping">Begin Shopping</button>
 </div>
-
-
 
 <script type="text/javascript">
   $(function(){
@@ -38,25 +38,50 @@
       $('.item').first().fadeIn(2000);
       $('.item').first().addClass("current");
       $('#begin-shopping').hide();
-    //   console.log("hey");
-    // $(".shopping-items").animate(
-    //         {"right": "+=550px"},
-    //         "slow");
     });
 
     var count = 0;
     $('.buttons').on('click', '.got-it, .skip-it', function (e) {
-
-      // $('.current').animate(
-      //         {"right": "+=250px"},
-      //         "slow");
-      //
       e.preventDefault();
       $(this).parent().parent().hide();
       $(this).parent().parent().siblings().eq(count).fadeIn(500);
       count++;
+    });
 
+    $('#submit-list').on('click', function(){
+      var slug = $('.list-review').data('list-url');
+      var url = slug+'/submit';
 
+      var skippedItems = [];
+      $.get(url, function(items){
+
+        $(items).each(function(){
+          var item = $(this)[0];
+          var status = item.status;
+          console.log(status);
+          if(status == "skipped"){
+            skippedItems.push(item);
+          }
+        });
+        console.log(skippedItems);
+        sendSkippedItemsEmail(skippedItems)
+
+      });
     });
   });
+
+
+
+  function sendSkippedItemsEmail(skippedItems){
+    console.log();
+    $.ajax({
+      url: '/shopping/3',
+      method: "POST",
+      data: {items: skippedItems}
+    }).done(function(){
+      console.log("done");
+    }).error(function(){
+      console.log("fudge");
+    });
+  }
 </script>

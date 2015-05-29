@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy, :get_items]
 
   def index
     @lists = List.all
@@ -34,6 +34,15 @@ class ListsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def get_items
+    @list.complete = true
+    @list.save
+
+    @items = @list.items
+    
+    render json: @items
   end
 
 
