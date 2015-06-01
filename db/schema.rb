@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601010839) do
+ActiveRecord::Schema.define(version: 20150601164329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150601010839) do
     t.string  "message"
     t.integer "list_id"
     t.string  "sender_email"
+    t.string  "sender_name"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -44,9 +45,9 @@ ActiveRecord::Schema.define(version: 20150601010839) do
   create_table "lists", force: :cascade do |t|
     t.integer  "user_id"
     t.date     "date"
-    t.boolean  "shopped"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "shopped",      default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "author"
     t.string   "author_email"
   end

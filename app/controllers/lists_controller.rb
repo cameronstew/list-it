@@ -15,6 +15,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.create(list_params)
+    if current_user
+      @list.user_id = current_user.id
+      @list.author = current_user.full_name
+      @list.author_email = current_user.email
+    end
+
     if @list.save
       redirect_to list_path(@list), notice: "List created!"
     else
@@ -48,8 +54,7 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:date, :user_id, :complete, items_attributes:[:description, :quantity, :_destroy])
-    # params.require(:list).permit(:date, :user_id, :complete, :items, :item, :quantity)
+    params.require(:list).permit(:date, :user_id, :shopped, items_attributes:[:description, :quantity, :_destroy])
   end
 
   def set_list

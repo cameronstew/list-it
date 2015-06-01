@@ -8,11 +8,14 @@ class EmailsController < ApplicationController
   def create
     @email = Email.create(email_params)
     @email.list_id = params[:list_id]
+
+    @list.author = @email.sender_name
+    @list.author_email = @email.sender_email
+    @list.save
+
     if @email.save
       ListMailer.email_list(@email.recipient_name, @email.recipient_email, @email.list_id).deliver_now
     end
-    #@list.author = current_user.full_name
-    @list.author_email = @email.sender_email
     redirect_to lists_path
   end
 
@@ -25,7 +28,7 @@ class EmailsController < ApplicationController
 
   private
   def email_params
-    params.require(:email).permit(:recipient_email, :recipient_name, :message, :list_id, :sender_email)
+    params.require(:email).permit(:recipient_email, :recipient_name, :message, :list_id, :sender_email, :sender_name)
   end
 
   def set_list

@@ -1,9 +1,17 @@
 <%= form_for([@list, @email], class: 'form-horizontal') do |f| %>
   <div class="form-group">
     <div class="field row">
+      <%= f.label :sender_name,:class => 'control-label col-md-3' %>
+      <div class="form-controls col-md-5">
+        <%= f.text_field :sender_name, :value => current_user.full_name, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field row">
       <%= f.label :sender_email,:class => 'control-label col-md-3' %>
       <div class="form-controls col-md-5">
-        <%= f.text_field :sender_email, :value => @list.id, class: 'form-control' %>
+        <%= f.text_field :sender_email, :value => current_user.email, class: 'form-control' %>
       </div>
     </div>
   </div>
