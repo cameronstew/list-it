@@ -9,7 +9,7 @@ gem 'omniauth-identity'
 gem 'carrierwave'
 gem 'vacuum', '~> 1.3.0'
 gem 'rack-cors', :require => 'rack/cors'
-gem "nested_form"
+gem 'nested_form'
 gem 'mandrill-api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

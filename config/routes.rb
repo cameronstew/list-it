@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
-  resources :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  root 'sessions#new'
 
-  # You can have the root of your site routed with "root"
-  root 'welcome#index'
-
-  resources :lists do
-    resources :emails
-  end
-  resources :items
+  get '/auth/:provider/callback' => 'sessions#create'
+  post '/auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => 'fails#index'
 
   get '/shopping/:id' => 'shopping#index'
   get 'shopping/status/:id' => 'items#item_status'
   get '/lists/:id/submit' => 'lists#get_items'
   post '/shopping/:id' => 'emails#skipped_items_email'
+  get '/welcome' => 'welcome#index'
+
+  resources :secrets
+  resources :identities
+
+  resources :users
+  resources :lists do
+    resources :emails
+  end
+  resources :items
+
 
 
   # Example of regular route:
