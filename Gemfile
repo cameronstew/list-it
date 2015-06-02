@@ -11,6 +11,7 @@ gem 'vacuum', '~> 1.3.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'nested_form'
 gem 'mandrill-api'
+gem 'font-awesome-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

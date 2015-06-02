@@ -54,7 +54,7 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:date, :user_id, :shopped, items_attributes:[:description, :quantity, :_destroy])
+    params.require(:list).permit(:name, :user_id, :shopped, items_attributes:[:description, :quantity, :_destroy])
   end
 
   def set_list
