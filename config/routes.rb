@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/shopping/:id' => 'emails#skipped_items_email'
   get '/welcome' => 'welcome#index'
 
+  get '/recipes' => 'recipe_fetcher#index'
+
   resources :secrets
   resources :identities
 

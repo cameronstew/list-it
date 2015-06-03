@@ -1,0 +1,11 @@
+<% @result.each do |result| %>
+
+
+<% end %>
+<% @result.recipes.each do |recipe| %>
+<div class="recipe-images" data-recipe-id="<%= recipe.id %>" >
+  <%= image_tag(recipe.json['imageUrlsBySize']["90"]) %>
+  <h2 class="recipe-title"><%= "#{recipe.json['sourceDisplayName']}: " %></h2>
+
+</div>
+<% end %>

@@ -12,6 +12,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'nested_form'
 gem 'mandrill-api'
 gem 'font-awesome-sass'
+gem 'yummly'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
