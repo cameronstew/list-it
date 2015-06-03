@@ -182,3 +182,50 @@ body{
   float:none;
   }
 }
+
+
+
+//recipes api
+.recipe-images{
+  margin: 0 10px 10px;
+  float: left;
+  width:150px;
+  height:150px;
+  position: relative;
+  color: white;
+}
+
+.recipe-images img {
+    width:100%;
+    vertical-align:top;
+}
+
+
+.recipe-images:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0.8;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+.recipe-images:hover:after {
+  opacity: 0;
+}
+
+.recipe-images:hover .recipe-title{
+  transition: all 1s;
+  display:none;
+}
+
+.recipe-title {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   color:white;
+  font-size: 20px;
+}
