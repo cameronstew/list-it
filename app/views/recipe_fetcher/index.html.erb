@@ -1,11 +1,71 @@
-<% @result.each do |result| %>
+<% @recipes.each do |recipe| %>
 
-
+  <a href="#" data-toggle="modal" data-target="#recipe-view" id="view-recipe-button">
+    <div class="recipe-images" data-recipe-id="<%= recipe['id'] %>">
+      <%= image_tag(recipe['imageUrlsBySize']["90"])  %>
+      <h2 class="recipe-title"><%= recipe['sourceDisplayName'] %></h2>
+    </div>
+  </a>
 <% end %>
-<% @result.recipes.each do |recipe| %>
-<div class="recipe-images" data-recipe-id="<%= recipe.id %>" >
-  <%= image_tag(recipe.json['imageUrlsBySize']["90"]) %>
-  <h2 class="recipe-title"><%= "#{recipe.json['sourceDisplayName']}: " %></h2>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="recipe-view" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">View Recipe</h4>
+      </div>
+      <div class="modal-body">
+        <img src="https://lh3.googleusercontent.com/-zh5PT2OHj-Q/UvjuGqtMggI/AAAAAAAADfA/Tuu8Bhtvn60/s0-d/loading.gif" alt="" style="height:250px;"/>
+        <div id="recipe_temp" style="display:none;"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Use recipe for list</button>
+      </div>
+    </div>
+  </div>
 </div>
-<% end %>
+<script type="text/javascript">
+$(function(){
+  $('.recipe-images').on('click', function(){
+    $('.modal-body').empty();
+    var recipeId = $(this).data('recipe-id');
+    var url = '/recipes/'+recipeId;
+
+    getRecipe(url);
+    // $.getJSON(url, function(recipe_data){
+    //   var recipe = recipe_data.json
+    //   console.log(recipe);
+    //
+    //   var recipeName = (recipe.name);
+    //   var source = recipe.source;
+    //   var sourceName = source.sourceDisplayName;
+    //   var sourceURL = source.sourceSiteUrl;
+    //   var rating = recipe.rating;
+    //   var recipeImage = recipe.images[0].hostedLargeUrl;
+    //   var ingredients = ingredientLines;
+    //
+    //
+    //
+    //   $('.modal-body img').hide();
+    //   $('.modal-body').append('<span>'+recipeName+"</span>");
+    // });
+  });
+});
+
+
+function getRecipe(recipeURL){
+  $.getJSON(recipeURL, function(recipe_data){
+    console.log(recipe_data);
+    $('.modal-body img').hide();
+
+    var template = HandlebarsTemplates['recipe_fetcher/index'](recipe_data);
+
+    $('.modal-body').append(template);
+    $('#recipe_temp').show();
+  });
+}
+</script>
