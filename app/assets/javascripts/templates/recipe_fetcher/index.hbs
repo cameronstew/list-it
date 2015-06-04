@@ -1,0 +1,36 @@
+  <div class="recipe-view">
+    {{#each this}}
+    <h1>{{this.source.sourceDisplayName}}'s {{this.name}}</h1>
+    <div class="body">
+      <div class="recipe-info">
+        <p>
+          <img src="{{this.images.0.hostedLargeUrl}}" alt="" />
+        </p>
+        <p>
+          <ul>
+            <li><strong>Rating: </strong><span>{{this.rating}}</span></li>
+            <li><strong>From: </strong><span><a href="{{this.source.sourceSiteUrl}}">{{this.source.sourceSiteUrl}}</a></span></li>
+            <li><strong>Recipe URL: </strong><span><a href="{{this.source.sourceRecipeUrl}}">{{this.source.sourceRecipeUrl}}</a></span></li>
+          </ul>
+        </p>
+      </div>
+      <hr>
+      <div class="recipe-details">
+        <p>
+          <strong>Servings: </strong>{{this.numberOfServings}}
+        </p>
+        <p>
+        <strong>Time: </strong>{{this.totalTime}}
+        </p>
+        <p>
+          <strong>Ingredients</strong>
+          <ul class="ingredient-list">
+            {{#each this.ingredientLines}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </p>
+      </div>
+    </div>
+    {{/each}}
+  </div>

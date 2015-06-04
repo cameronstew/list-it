@@ -13,6 +13,8 @@ gem 'nested_form'
 gem 'mandrill-api'
 gem 'font-awesome-sass'
 gem 'yummly'
+gem "bower-rails", "~> 0.9.2"
+gem 'handlebars_assets'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
