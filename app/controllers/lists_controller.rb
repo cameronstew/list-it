@@ -93,11 +93,21 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list.update(list_params)
-    if @list.save
-      redirect_to list_path(@list), notice: "List updated!"
-      render :edit
-    end
+    # @list.update(list_params)
+    # if @list.save
+    #   redirect_to list_path(@list), notice: "List updated!"
+    # else
+    #   render :edit
+    # end
+    respond_to do |format|
+        if @list.update(list_params)
+          format.html { redirect_to @list, notice: 'List was successfully updated.' }
+          format.json { render :show, status: :ok, location: @list }
+        else
+          format.html { render :edit }
+          format.json { render json: @list.errors, status: :unprocessable_entity }
+        end
+      end
   end
 
   def destroy
@@ -115,7 +125,7 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:name, :user_id, :shopped, items_attributes:[:description, :quantity, :_destroy])
+    params.require(:list).permit(:name, :user_id, :shopped, items_attributes:[:description, :quantity, :_destroy, :id])
   end
 
   def set_list
