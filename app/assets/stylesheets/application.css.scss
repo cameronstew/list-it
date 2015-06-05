@@ -1,6 +1,8 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "reset.css";
+@import 'reset';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+@import 'colors';
 
 @import url(http://fonts.googleapis.com/css?family=Just+Another+Hand|Pompiere|Englebert);
 
@@ -17,7 +19,7 @@
 
 body{
   margin-top: 100px;
-  // background-color: rgba(0,0,0, 0.8);
+  //background-color: $color1;
   // background-image:
   //   linear-gradient(
   //     rgba(0, 0, 0, 0.5),
@@ -25,13 +27,6 @@ body{
   //   ),
   //   url(shoes.jpg);
 }
-//
-// .lists{
-//   border-left: 5px solid green;
-//   border-right: 5px solid green;
-//   background-color: white;
-//   padding-bottom: 30%;
-// }
 
 
 //navbar
@@ -54,21 +49,13 @@ body{
 }
 
 
-// .new-list a{
-//   padding: 28px;
-//   border: 3px solid green;
-//   border-radius: 18px;
-//   margin: 20%;
-//   color:green;
-// }
-
 .page-header{
   text-align: center;
 }
 
 .btn-primary,
 .btn-primary:hover{
-  background-color:green;
+  background-color:$color5;
 }
 
 .list{
@@ -84,6 +71,10 @@ body{
 .email-list a{
   color:white;
 }
+
+.column-left{ float: left; width: 33%; }
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
 
 //shopping
 

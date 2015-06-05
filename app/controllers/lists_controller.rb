@@ -2,7 +2,17 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy, :get_items]
 
   def index
-    @lists = List.all
+    current_month = Time.now.strftime("%-m")
+    last_month = (Time.now - 1.month ).strftime("%-m")
+    month_before_last = (Time.now - 2.month ).strftime("%-m")
+
+    @current_month_name = Time.now.strftime("%B")
+    @last_month_name = (Time.now - 1.month ).strftime("%B")
+    @month_before_last_name = (Time.now - 2.month ).strftime("%B")
+
+    @current_lists = List.all.where('extract(month from updated_at) = ?', current_month)
+    @last_month_lists = List.all.where('extract(month from updated_at) = ?', last_month)
+    @month_before_last_lists = List.all.where('extract(month from updated_at) = ?', month_before_last)
   end
 
   def show

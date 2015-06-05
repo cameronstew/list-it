@@ -8,10 +8,34 @@
 </div>
 <div class="my-lists">
 
-  <% @lists.each do |list| %>
-  <p>
-    <%= link_to list.name, list_path(list) %>
-  </p>
-  <% end %>
+   <div class="column-center">
+     <h2> <%= @last_month_name %> Lists </h2>
+     <% @last_month_lists.each do |list| %>
+     <p>
+       <%= link_to list.name, list_path(list) %>
+     </p>
+     <% end %>
+
+   </div>
+   <div class="column-left">
+     <h2> <%= @current_month_name %> Lists </h2>
+     <% @current_lists.each do |list| %>
+     <p>
+       <%= link_to list.name, list_path(list) %>
+     </p>
+     <% end %>
+   </div>
+   <div class="column-right">
+     <h2> <%= @month_before_last_name %> Lists </h2>
+     <% @month_before_last_lists.each do |list| %>
+     <p>
+       <%= link_to list.name, list_path(list) %>
+     </p>
+     <% end %>
+   </div>
+
+
+
+
 </div>
 </div>
