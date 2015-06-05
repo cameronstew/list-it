@@ -53,13 +53,15 @@
       $('#recipe_temp').show();
 
       var ingredients = recipe_data.json.ingredientLines;
+      var name = recipe_data.json.name;
+      var source = recipe_data.json.source.sourceSiteUrl;
+      var recipeTitle = name+" from "+source;
 
       $('#use-recipe').on('click', function(){
-        console.log(typeof (ingredients));
         $.ajax({
           url: '/lists',
           type: 'POST',
-          data: {ingredients: ingredients}
+          data: {ingredients: ingredients, recipeTitle: recipeTitle }
         }).done(function(newList){
           var listID = newList.id;
           window.location.href = '/lists/'+listID;

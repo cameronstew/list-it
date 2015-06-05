@@ -15,7 +15,9 @@ class ListsController < ApplicationController
 
   def create
     if params[:ingredients]
+      name = params[:recipeTitle]
       @list = List.new
+      @list.name = "#{Time.now.strftime("%m/%d/%y")} #{name}"
       if current_user
         @list.user_id = current_user.id
         @list.author = current_user.full_name
@@ -23,70 +25,68 @@ class ListsController < ApplicationController
       end
 
       item_hash = Hash.new
-        ingredients = params[:ingredients]
-        count = 0
+      ingredients = params[:ingredients]
 
-        ingredients.each do |ingredient|
-          items_array = []
-          if /(^\d\s\S+\s\d+|^\d-\d|^\d\/\d|^\d)/.match(ingredient)
-            if /^\d\s\S+\s\d+/.match(ingredient)
-              quantity = /^\d\s\S+\s\d+/.match(ingredient)[0]
-            elsif /^\d-\d/.match(ingredient)
-              quantity = /^\d-\d/.match(ingredient)[0]
-            elsif /^\d\/\d/.match(ingredient)
-              quantity = /^\d\/\d/.match(ingredient)[0]
-            elsif /^\d/.match(ingredient)
-              quantity = /^\d/.match(ingredient)[0]
-            end
+      count = 0
 
-            items_array << quantity
-
-            ingredient.slice! quantity
-            description = ingredient[1..-1]
-
-            items_array << description
-
-            item_hash[count] = items_array
-
-          else
-            description = ingredient
-            quantity = ''
-
-            items_array << quantity
-            items_array << description
-            item_hash[count] = items_array
-
+      ingredients.each do |ingredient|
+        items_array = []
+        if /(^\d\s\S+\s\d+|^\d-\d|^\d\/\d|^\d)/.match(ingredient)
+          if /^\d\s\S+\s\d+/.match(ingredient)
+            quantity = /^\d\s\S+\s\d+/.match(ingredient)[0]
+          elsif /^\d-\d/.match(ingredient)
+            quantity = /^\d-\d/.match(ingredient)[0]
+          elsif /^\d\/\d/.match(ingredient)
+            quantity = /^\d\/\d/.match(ingredient)[0]
+          elsif /^\d/.match(ingredient)
+            quantity = /^\d/.match(ingredient)[0]
           end
 
-          count +=1
+          items_array << quantity
+
+          ingredient.slice! quantity
+          description = ingredient[1..-1]
+
+          items_array << description
+
+          item_hash[count] = items_array
+
+        else
+          description = ingredient
+          quantity = ''
+
+          items_array << quantity
+          items_array << description
+          item_hash[count] = items_array
+
         end
 
-        item_hash.each do |item|
-          @item = @list.items.new
-          @item.quantity = item[1][0]
-          @item.description = item[1][1]
-          @item.save
-        end
-        @list.save
+        count +=1
+      end
 
-        render json: @list
+      item_hash.each do |item|
+        @item = @list.items.new
+        @item.quantity = item[1][0]
+        @item.description = item[1][1]
+        @item.save
+      end
+      @list.save
 
-
+      render json: @list
     else
+      @list = List.create(list_params)
+      if current_user
+        @list.user_id = current_user.id
+        @list.author = current_user.full_name
+        @list.author_email = current_user.email
+      end
 
-    @list = List.create(list_params)
-    if current_user
-      @list.user_id = current_user.id
-      @list.author = current_user.full_name
-      @list.author_email = current_user.email
+      if @list.save
+        redirect_to list_path(@list), notice: "List created!"
+      else
+        render :new
+      end
     end
-
-    if @list.save
-      redirect_to list_path(@list), notice: "List created!"
-    else
-      render :new
-    end
-  end
   end
 
   def edit
