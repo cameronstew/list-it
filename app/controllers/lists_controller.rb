@@ -14,6 +14,66 @@ class ListsController < ApplicationController
   end
 
   def create
+    if params[:ingredients]
+      @list = List.new
+      if current_user
+        @list.user_id = current_user.id
+        @list.author = current_user.full_name
+        @list.author_email = current_user.email
+      end
+
+      item_hash = Hash.new
+        ingredients = params[:ingredients]
+        count = 0
+
+        ingredients.each do |ingredient|
+          items_array = []
+          if /(^\d\s\S+\s\d+|^\d-\d|^\d\/\d|^\d)/.match(ingredient)
+            if /^\d\s\S+\s\d+/.match(ingredient)
+              quantity = /^\d\s\S+\s\d+/.match(ingredient)[0]
+            elsif /^\d-\d/.match(ingredient)
+              quantity = /^\d-\d/.match(ingredient)[0]
+            elsif /^\d\/\d/.match(ingredient)
+              quantity = /^\d\/\d/.match(ingredient)[0]
+            elsif /^\d/.match(ingredient)
+              quantity = /^\d/.match(ingredient)[0]
+            end
+
+            items_array << quantity
+
+            ingredient.slice! quantity
+            description = ingredient[1..-1]
+
+            items_array << description
+
+            item_hash[count] = items_array
+
+          else
+            description = ingredient
+            quantity = ''
+
+            items_array << quantity
+            items_array << description
+            item_hash[count] = items_array
+
+          end
+
+          count +=1
+        end
+
+        item_hash.each do |item|
+          @item = @list.items.new
+          @item.quantity = item[1][0]
+          @item.description = item[1][1]
+          @item.save
+        end
+        @list.save
+
+        render json: @list
+
+
+    else
+
     @list = List.create(list_params)
     if current_user
       @list.user_id = current_user.id
@@ -26,6 +86,7 @@ class ListsController < ApplicationController
     else
       render :new
     end
+  end
   end
 
   def edit

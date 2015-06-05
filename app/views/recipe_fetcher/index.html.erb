@@ -23,49 +23,50 @@
         <div id="recipe_temp" style="display:none;"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Use recipe for list</button>
+        <button type="button" class="btn btn-primary" id="use-recipe">Use recipe for list</button>
       </div>
     </div>
   </div>
 </div>
+
+
 <script type="text/javascript">
-$(function(){
-  $('.recipe-images').on('click', function(){
-    $('.modal-body').empty();
-    var recipeId = $(this).data('recipe-id');
-    var url = '/recipes/'+recipeId;
+  $(function(){
+    $('.recipe-images').on('click', function(){
 
-    getRecipe(url);
-    // $.getJSON(url, function(recipe_data){
-    //   var recipe = recipe_data.json
-    //   console.log(recipe);
-    //
-    //   var recipeName = (recipe.name);
-    //   var source = recipe.source;
-    //   var sourceName = source.sourceDisplayName;
-    //   var sourceURL = source.sourceSiteUrl;
-    //   var rating = recipe.rating;
-    //   var recipeImage = recipe.images[0].hostedLargeUrl;
-    //   var ingredients = ingredientLines;
-    //
-    //
-    //
-    //   $('.modal-body img').hide();
-    //   $('.modal-body').append('<span>'+recipeName+"</span>");
-    // });
+      var recipeId = $(this).data('recipe-id');
+      var url = '/recipes/'+recipeId;
+      getRecipe(url);
+
+    });
   });
-});
 
+  function getRecipe(recipeURL){
 
-function getRecipe(recipeURL){
-  $.getJSON(recipeURL, function(recipe_data){
-    console.log(recipe_data);
-    $('.modal-body img').hide();
+      $.getJSON(recipeURL, function(recipe_data){
+      $('.modal-body').empty();
+      $('.modal-body img').hide();
 
-    var template = HandlebarsTemplates['recipe_fetcher/index'](recipe_data);
+      var template = HandlebarsTemplates['recipe_fetcher/index'](recipe_data);
 
-    $('.modal-body').append(template);
-    $('#recipe_temp').show();
-  });
-}
+      $('.modal-body').append(template);
+      $('#recipe_temp').show();
+
+      var ingredients = recipe_data.json.ingredientLines;
+
+      $('#use-recipe').on('click', function(){
+        console.log(typeof (ingredients));
+        $.ajax({
+          url: '/lists',
+          type: 'POST',
+          data: {ingredients: ingredients}
+        }).done(function(newList){
+          var listID = newList.id;
+          window.location.href = '/lists/'+listID;
+        }).error(function(){
+          console.log("error");
+        });
+      });
+    });
+  }
 </script>
