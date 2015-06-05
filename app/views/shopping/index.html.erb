@@ -18,9 +18,9 @@
       <ul>
         <% @list.items.each do |item| %>
           <% if item.status == "purchased" %>
-            <li><span class="glyphicon glyphicon-ok"></span><%= item.description %></li>
+            <li><span class="glyphicon glyphicon-ok"></span><%= item.quantity %> <%= item.description %></li>
           <% else %>
-            <li><span class="glyphicon glyphicon-remove"></span><%= item.description %></li>
+            <li><span class="glyphicon glyphicon-remove"></span><%= item.quantity %> <%= item.description %></li>
           <% end %>
         <% end %>
       </ul>
