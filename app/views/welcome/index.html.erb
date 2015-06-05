@@ -4,8 +4,6 @@
 
 <div class="new-list row">
   <div class="create-list manual col-md-2 col-md-offset-2">
-
-
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     	 width="72px" height="72px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
     <path class="svg-image" d="M67.982,14.221c-0.148-2.527-1.26-5.003-3.049-6.792l-0.436-0.435c-1.881-1.882-4.354-2.918-6.961-2.918
@@ -44,7 +42,8 @@
     		C64.368,62.57,64.161,63.072,63.784,63.451z"/>
     </g>
     </svg>
-    <span class="new-list-text">Search for recipes</span>
+    <!-- <span class="new-list-text">Search for recipes</span> -->
+    <%= link_to 'Search for recipes',  '/search', class: 'new-list-text' %>
   </div>
   <div class="create-list upload col-md-2 col-md-offset-1">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

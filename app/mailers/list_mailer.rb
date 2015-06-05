@@ -1,5 +1,5 @@
 class ListMailer < ApplicationMailer
-  default from: 'cws322@gmail.com'
+  default from: 'hello@listit.com'
 
   def email_list(recipient_name, recipient_email, list_id)
     @recipient = recipient_name

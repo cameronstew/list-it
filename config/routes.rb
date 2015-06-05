@@ -11,8 +11,15 @@ Rails.application.routes.draw do
   post '/shopping/:id' => 'emails#skipped_items_email'
   get '/welcome' => 'welcome#index'
 
-  get '/recipes' => 'recipe_fetcher#index'
+  get '/recipes' =>'recipe_fetcher#index'
 
+  get '/search' => 'recipe_fetcher#new'
+  get '/recipes/search/:id' => 'recipe_fetcher#index'
+  get '/recipes/:id' => 'recipe_fetcher#show'
+
+  # resources :recipes, :controller => "recipe_fethcer", :path_names => { :new => "add" }
+
+  # resources :recipe_fetchers
   resources :secrets
   resources :identities
 
@@ -23,53 +30,4 @@ Rails.application.routes.draw do
   resources :items
 
 
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars.runtime
+//= require_tree ./templates
 //= require jquery_nested_form
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require shopping
 //= require_tree .
