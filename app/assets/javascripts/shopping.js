@@ -20,7 +20,14 @@ $(function(){
   });
 
   $('#submit-list').on('click', function(){
+    $('.shopping-items').hide();
+    $('.thank-you').show();
+
     shopping.submitList();
+
+    setTimeout(function(){
+      window.location.href = '/';
+    }, 5000);
   });
 });
 
