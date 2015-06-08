@@ -47,14 +47,14 @@ var shopping = (function(){
   }
 
   function slideItem(direction){
-    var nextSib = $('.current').next();
+    var nextItem = $('.current').next();
     $('.current').hide('slide', {direction: direction}, 700);
     setTimeout(function(){
-      $(nextSib).fadeIn(500);
+      $(nextItem).fadeIn(500);
     }, 700);
 
     $('.current').removeClass('current');
-    $(nextSib).addClass('current');
+    $(nextItem).addClass('current');
   }
 
   function updateItem(url, status){

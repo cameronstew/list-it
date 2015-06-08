@@ -16,7 +16,7 @@
     <div class="list-review" data-list-url="<%= list_path(@list) %>">
       <h2>Review List</h2>
       <ul>
-        <% @list.items.each do |item| %>
+        <% @items.each do |item| %>
           <% if item.status == "purchased" %>
             <li><span class="glyphicon glyphicon-ok"></span><%= item.quantity %> <%= item.description %></li>
           <% else %>
