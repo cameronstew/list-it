@@ -9,6 +9,8 @@
 @import 'colors';
 
 @import url(http://fonts.googleapis.com/css?family=Just+Another+Hand|Pompiere|Englebert);
+@import url(http://fonts.googleapis.com/css?family=Maiden+Orange|Federo|Grand+Hotel|Sacramento|Cherry+Swash);
+@import url(http://fonts.googleapis.com/css?family=Sniglet);
 
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
@@ -16,26 +18,95 @@
 // font-family: 'Just Another Hand', cursive;
 // font-family: 'Pompiere', cursive;
 // font-family: 'Englebert', sans-serif;
+
+
+//font-family: 'Maiden Orange', cursive;
+//font-family: 'Federo', sans-serif;
+//font-family: 'Grand Hotel', cursive;
+//font-family: 'Sacramento', cursive;
+//font-family: 'Cherry Swash', cursive;
+
 *, *:before, *:after {
   border-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+}
 
 body{
-  margin-top: 100px;
-  //background-color: $color1;
-  // background-image:
-  //   linear-gradient(
-  //     rgba(0, 0, 0, 0.5),
-  //     rgba(0, 0, 0, 0.5)
-  //   ),
-  //   url(shoes.jpg);
+  margin: 100px 0 50px;
+  // background-color: #f7f7ef;
+  //background: url(linedpaper_@2x.png);
+  background: rgba(0,0,0,1.0);
+	padding-top: 75px;
+	// background: #f7f7ef;
+
+	font-family: Sniglet;
 }
 
 
+
+/* welcome page */
+
+.list-it{
+  font-family: 'Federo', sans-serif;
+}
+
+.welcome{
+  font-family: 'Pompiere', cursive;
+    font-size: 28px;
+    padding: 57px;
+    border: 6px solid #387D7A;
+    // border-radius: 50%;
+    background-color: #52AD9C;
+    // margin: 0px 38%;
+    color: white;
+    padding: 15px 30% 5%;
+    box-shadow: 9px 6px 14px #888888;
+  }
+
+.welcome h1{
+  font-size: 48px;
+}
+
+  .welcome a {
+    color:white;
+  }
+
+  .welcome a:hover{
+    text-decoration: none;
+  }
+
+
+  .intro{
+    margin: 5% 5%;
+  }
+
+  .get-started{
+    margin: 10% 10%;
+  }
+
+
+//end welcome
+
 //navbar
+
+.nav-content{
+  display:none;
+}
 .navbar-brand{
   padding: 0;
+}
+
+.navbar{
+  padding: 1%;
+  background-color: #F3FFDB;
 }
 .navbar-brand:hover .svg-image-home-logo{
   fill:green;
@@ -47,10 +118,28 @@ body{
   white:green;
 }
 
-.glyphicon{
-  color: green;
-  padding: 0 10px;
+.navbar-text{
+  margin: 0 5px;
 }
+.navbar-right{
+  padding: 33px 20px;
+  border-radius: 50%;
+}
+.navbar-right a{
+  color: #A5CBC3;
+}
+.sign-out{
+  background-color: #F99E1C;
+}
+.current-user{
+  background-color: #E66233;
+}
+.my-lists{
+  background-color: #22B8CE;
+}
+
+/* end navbar */
+
 
 
 .page-header{
@@ -59,26 +148,21 @@ body{
 
 .btn-primary,
 .btn-primary:hover{
-  background-color:$color5;
-}
-
-.list{
-  margin-bottom: 50px;
-}
-.email-list{
-  padding: 10%;
-  background-color: green;
-
-  text-align: center;
-}
-
-.email-list a{
-  color:white;
+  background-color:#81C14B;
 }
 
 .column-left{ float: left; width: 33%; }
 .column-right{ float: right; width: 33%; }
 .column-center{ display: inline-block; width: 33%; }
+
+//email form
+.send-email-button{
+  text-align:center;
+}
+
+.email-form{
+  background-color: rgba(0,0,0,0.5);
+}
 
 //shopping
 
@@ -110,21 +194,24 @@ body{
 .item p{
   margin: 0 0 10px;
   padding: 20% 0 50%;
+  background: #81C14B;
+  font-size: 55px;
+  color: #EFFFC8;
 }
 
 .shopping-items{
   text-align:center;
 }
 
-#begin-shopping{
-  background-color: green;
-  color: white;
-  padding: 20px;
-  width: 300px;
-  height: 80px;
-  border-radius: 5px;
-  margin-top: 40px;
-}
+// #begin-shopping{
+//   background-color: green;
+//   color: white;
+//   padding: 20px;
+//   width: 300px;
+//   height: 80px;
+//   border-radius: 5px;
+//   margin-top: 40px;
+// }
 
 .begin-shopping-button{
   margin-top: 40px;
@@ -149,37 +236,149 @@ body{
   padding: 10%;
 }
 
-//create new list
+//choose new list
 
 .new-list-text{
-  display:none;
   color:white;
-}
-.new-list-text:hover{
-  color:white;
-  text-decoration: none;
-
+  display:block;
+  float:right;
+  font-size: 33px;
 }
 
 .create-list{
   padding: 45px 10px;;
   height: 235px;
   text-align:center;
-  border-radius: 10px;
 }
-.create-list:hover{
+.create-list{
   background-color: rgba(0,0,0, 0.8);
-  color:white;
+  color:#EFFFC8;
 
 }
-.create-list:hover .svg-image{
+.create-list .svg-image{
   fill:white;
 }
-.create-list:hover .new-list-text{
-  display:block;
-  float:right;
-  font-size: 33px;
+.create-list:hover .svg-image{
+  fill:#EFFFC8;
 }
+.create-list:hover .new-list-text{
+  color:#EFFFC8;
+}
+
+.make-new-list{
+  padding: 20px;
+  margin: 0px 81% 0 10%;
+  float: left;
+  color: #81C14B;
+  width: 100%;
+}
+
+.manual:hover{
+  background-color: #A5CBC3;
+  border: 5px solid #395E66;
+}
+.search:hover{
+  background-color: #81C14B;
+  border: 5px solid #65A531;
+}
+ //end new list
+
+
+//create new list
+
+.new_list,
+.edit_list,
+.new_email,
+#home{
+  background-color: #A5CBC3;
+  //background-color: rgba(0,0,0,0.1);
+  padding: 3%;
+  border: 5px solid #395E66;
+}
+
+.new-list a,
+.edit_list a{
+  // color:#395E66;
+  text-decoration: none;
+}
+
+
+.field{
+  font-size: 22px;
+  color:#395E66;
+}
+
+.form-control{
+  font-size: 16px;
+}
+
+
+
+
+ //list show
+ .list-show{
+   background-color: #A5CBC3;
+  //  background-color: rgba(0,0,0,0.1);
+  border: 5px solid #395E66;
+  color:#395E66;
+  text-align:center;
+  padding: 3%;
+ }
+
+
+ .list{
+   margin-bottom: 50px;
+   font-family: 'Maiden Orange', cursive;
+   font-size: 25px;
+ }
+
+ .quantity{
+   font-size: 27px;
+ }
+ // .email-list{
+ //   padding: 10%;
+ //   background-color: green;
+ //
+ //   text-align: center;
+ // }
+
+ .email-list a{
+   color:white;
+ }
+
+
+//end list show
+
+//GENERAL SETTINGS
+
+.breadcrumb{
+  background:transparent;
+
+}
+.breadcrumb li{
+  color:#395E66;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:visited {
+  background-color: #81C14B;
+  border: none;
+  font-size: 14pt;
+  padding: 10px 5%;
+}
+
+
+.page-title{
+  color:#81C14B;
+  // color:#EFFFC8;
+  font-family: 'Pompiere', cursive;
+  margin-left: 20px;
+}
+
+a:visited{
+  text-decoration:none;
+}
+
+// END GENERAL
 
 //media queries
 @media (min-width: 895px) {
@@ -194,15 +393,16 @@ body{
 .recipe-images{
   margin: 0 10px 10px;
   float: left;
-  width:150px;
-  height:150px;
+  width:100%;
+  height:200px;
   position: relative;
   color: white;
 }
 
 .recipe-images img {
-    width:100%;
-    vertical-align:top;
+  width: auto;
+  height: 100%;
+  vertical-align: top;
 }
 
 
@@ -221,18 +421,20 @@ body{
   opacity: 0;
 }
 
-.recipe-images:hover .recipe-title{
-  transition: all 1s;
-  display:none;
-}
+// .recipe-images:hover .recipe-title{
+//   transition: all 1s;
+//   display:none;
+// }
 
 .recipe-title {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   color:white;
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+   color:#81C14B;
   font-size: 20px;
+  float:right;
+  // font-family: 'Federo', sans-serif;
 }
 
 
@@ -240,3 +442,101 @@ body{
   list-style-type: circle;
   padding: 0 20px;
 }
+
+
+.modal-dialog{
+  width:60%;
+}
+
+.modal-footer{
+  text-align:center;
+}
+
+
+//end recipes
+
+
+//sign in
+
+main {
+	width: 500px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+	background: white;
+  border-radius: 3px;
+  overflow: hidden;
+}
+main h1 {
+	font-size: 24px;
+  font-weight: normal;
+	background: hsl(120, 40%, 95%);
+  color: hsl(120, 40%, 40%);
+	text-align: center;
+	padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.session-form {
+  padding: 0 50px;
+}
+
+/*Let's place the label over the input*/
+.session-form div {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.session-form input, .session-form label {
+	width: 400px;
+  display: block;
+	font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+	/*fixed height for FF line height issue.
+	height = 24(lineheight) + 10*2(padding) + 2(border)*/
+	height: 46px;
+	border: 1px solid #999;
+}
+.session-form input {
+  padding: 10px;
+  outline: none;
+  border-radius: 3px;
+}
+
+
+.session-form label {
+	position: absolute;
+  left: 0;
+  top: 0;
+	/*left/right padding will be 2px less, adjusted by padding on .ch*/
+	padding: 10px 8px;
+	border-color: transparent;
+  color: #666;
+	cursor: text;
+}
+
+/*label styles*/
+.ch {
+	display:
+  block;
+  float: left;
+	position: relative; /*for upward animation*/
+	background: white;
+}
+.ch:first-child {
+  padding-left: 2px;
+}
+.ch:last-child {
+  padding-right: 2px;
+}
+
+/*active input label*/
+.focussed {
+	/*when any input is already focussed clicking on it(label) again won't do anything*/
+	pointer-events: none;
+}
+
+
+
+
+//end sign in

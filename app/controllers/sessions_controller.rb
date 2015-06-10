@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
   def new
   end
 
@@ -22,9 +23,8 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by(oauth_user_id: uid)
     user.update_attributes(first_name: first_name, last_name: last_name, email: email, provider: provider) #update_attributes also includes .save
 
-    # user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
     if user.save
+      session[:user_id] = user.id
       redirect_to welcome_path
     else
       render :new, notice: "You must sign in"

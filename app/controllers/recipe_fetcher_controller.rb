@@ -1,11 +1,8 @@
 class RecipeFetcherController < ApplicationController
 
   def index
-    #@result = Yummly.search('Onion Soup')
      @result = Yummly.search(params[:id])
      @recipes = @result.recipes.map {|recipe| recipe.json}
-
-    # render json: @recipes
   end
 
   def show

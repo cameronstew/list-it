@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  # get '/login' => 'sessions#new'
+  get '/sign-up' => 'sessions#new'
+  # get '/sign-out' => 'sessions#destroy'
+
+  get '/sign-in' => 'sessions#new', as: :signin
+  # get '/sign-up' => 'identities#new'
+  # post '/login' => 'sessions#create'
+
+
   get '/auth/:provider/callback' => 'sessions#create'
   post '/auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => 'fails#index'
+
+  get '/sign-out' => 'sessions#destroy', as: :signout
+
 
   get '/shopping/:id' => 'shopping#index'
   get 'shopping/status/:id' => 'items#item_status'
@@ -17,9 +29,6 @@ Rails.application.routes.draw do
   get '/recipes/search/:id' => 'recipe_fetcher#index'
   get '/recipes/:id' => 'recipe_fetcher#show'
 
-  # resources :recipes, :controller => "recipe_fethcer", :path_names => { :new => "add" }
-
-  # resources :recipe_fetchers
   resources :secrets
   resources :identities
 

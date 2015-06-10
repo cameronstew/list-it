@@ -41,15 +41,19 @@ class ListsController < ApplicationController
 
       ingredients.each do |ingredient|
         items_array = []
-        if /(^\d\s\S+\s\d+|^\d-\d|^\d\/\d|^\d)/.match(ingredient)
-          if /^\d\s\S+\s\d+/.match(ingredient)
-            quantity = /^\d\s\S+\s\d+/.match(ingredient)[0]
+        if /(^\W|^\d+\S\z|^\d+\s(\d|\S[^a-zA-Z])\S+|^\d-\d|^\d\/\d|^\d+)/.match(ingredient)
+          if /^\W/.match(ingredient)
+            quantity = /^\W/.match(ingredient)[0]
+          elsif /^\d+\S\z/.match(ingredient)
+            quantity = /^\d+\S\z/.match(ingredient)[0]
+          elsif /^\d+\s(\d|\S[^a-zA-Z])\S+/.match(ingredient)
+            quantity = /^\d+\s(\d|\S[^a-zA-Z])\S+/.match(ingredient)[0]
           elsif /^\d-\d/.match(ingredient)
             quantity = /^\d-\d/.match(ingredient)[0]
           elsif /^\d\/\d/.match(ingredient)
             quantity = /^\d\/\d/.match(ingredient)[0]
-          elsif /^\d/.match(ingredient)
-            quantity = /^\d/.match(ingredient)[0]
+          elsif /^\d+/.match(ingredient)
+            quantity = /^\d+/.match(ingredient)[0]
           end
 
           items_array << quantity
@@ -103,12 +107,6 @@ class ListsController < ApplicationController
   end
 
   def update
-    # @list.update(list_params)
-    # if @list.save
-    #   redirect_to list_path(@list), notice: "List updated!"
-    # else
-    #   render :edit
-    # end
     respond_to do |format|
         if @list.update(list_params)
           format.html { redirect_to @list, notice: 'List was successfully updated.' }
@@ -130,6 +128,9 @@ class ListsController < ApplicationController
     @items = @list.items
 
     render json: @items
+  end
+
+  def create_list
   end
 
 

@@ -1,87 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instalist</title>
+  <title>List It</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  
+
 
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <nav class="navbar navbar-default navbar-fixed-top">
+
     <div class="container">
+      <div class="nav-expand">
+        ListIt
+      </div>
+      <div class="nav-content">
+
+
       <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        	 width="40px" height="50px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-        <g>
-        	<path class="svg-image-home-logo" d="M70.202,26.797l-33-24.833c-0.033-0.025-0.069-0.04-0.104-0.063c-0.056-0.037-0.111-0.072-0.17-0.103
-        		c-0.06-0.031-0.119-0.058-0.181-0.083c-0.059-0.024-0.116-0.045-0.177-0.063c-0.064-0.02-0.129-0.035-0.195-0.047
-        		c-0.061-0.012-0.121-0.021-0.182-0.027c-0.066-0.006-0.131-0.009-0.196-0.009c-0.063,0-0.126,0.002-0.189,0.008
-        		c-0.064,0.006-0.127,0.016-0.19,0.028c-0.063,0.012-0.124,0.026-0.186,0.044c-0.065,0.019-0.128,0.042-0.19,0.068
-        		c-0.056,0.023-0.11,0.046-0.164,0.075c-0.066,0.034-0.129,0.074-0.192,0.116c-0.029,0.02-0.061,0.033-0.09,0.055l-33,24.833
-        		c-0.882,0.664-1.06,1.918-0.396,2.801c0.394,0.522,0.994,0.797,1.6,0.797c0.419,0,0.841-0.131,1.201-0.401l5.179-3.897v33.964
-        		c0,7.854,2.049,10.375,9.619,10.375h34c7.57,0,10.381-2.521,10.381-10.375V26.671l4.416,3.323c0.36,0.271,0.782,0.402,1.201,0.402
-        		c0.607,0,1.207-0.274,1.6-0.798C71.262,28.715,71.085,27.461,70.202,26.797z M31.201,47.438H40.8c2.2,0,2.581,0.039,2.581,2.025
-        		v16.975H29.382V49.463C29.382,47.477,29.001,47.438,31.201,47.438z M59.381,24.438v35.625c0,5.721-0.998,6.375-6.381,6.375h-7.619
-        		V49.463c0-3.443-1.677-4.025-4.581-4.025h-9.599c-2.904,0-3.819,0.582-3.819,4.025v16.975H19c-5.384,0-5.619-0.654-5.619-6.375
-        		V24.438c0-0.407-0.123-0.784-0.332-1.1L36,6.066l23.508,17.69C59.43,23.97,59.381,24.198,59.381,24.438z"/>
-        	<path class="svg-image-home-logo" d="M30.612,16.207L17.582,26.27c-0.247,0.189-0.201,0.482-0.201,0.793v11.375c0,0.554,0.447,1,1,1c0.552,0,1-0.446,1-1V27.556
-        		l12.567-9.762c0.439-0.336,0.354-0.964,0.018-1.402C31.631,15.954,31.05,15.871,30.612,16.207z"/>
-        	<path class="svg-image-home-logo" d="M18.381,41.438c-0.553,0-1,0.447-1,1v1c0,0.554,0.447,1,1,1c0.552,0,1-0.446,1-1v-1
-        		C19.381,41.885,18.933,41.438,18.381,41.438z"/>
-        </g>
-        </svg>
+        ListIt
       </a>
-      <!-- <a class="navbar-text" href="#">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      	 width="30px" height="30px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
-      <g>
-      	<g>
-      		<g>
-      			<path d="M60.5,21h-27c-4.687,0-8.5-3.813-8.5-8.5S28.813,4,33.5,4h27c4.687,0,8.5,3.813,8.5,8.5S65.187,21,60.5,21z M33.5,8
-      				c-2.481,0-4.5,2.019-4.5,4.5s2.019,4.5,4.5,4.5h27c2.481,0,4.5-2.019,4.5-4.5S62.981,8,60.5,8H33.5z"/>
-      		</g>
-      		<g>
-      			<path d="M60.5,68h-27c-4.687,0-8.5-3.813-8.5-8.5s3.813-8.5,8.5-8.5h27c4.687,0,8.5,3.813,8.5,8.5S65.187,68,60.5,68z M33.5,55
-      				c-2.481,0-4.5,2.019-4.5,4.5s2.019,4.5,4.5,4.5h27c2.481,0,4.5-2.019,4.5-4.5S62.981,55,60.5,55H33.5z"/>
-      		</g>
-      		<g>
-      			<path d="M60.5,45h-27c-4.687,0-8.5-3.813-8.5-8.5s3.813-8.5,8.5-8.5h27c4.687,0,8.5,3.813,8.5,8.5S65.187,45,60.5,45z M33.5,32
-      				c-2.481,0-4.5,2.019-4.5,4.5s2.019,4.5,4.5,4.5h27c2.481,0,4.5-2.019,4.5-4.5S62.981,32,60.5,32H33.5z"/>
-      		</g>
-      	</g>
-      	<g>
-      		<g>
-      			<path d="M12.5,21h-1C6.813,21,3,17.187,3,12.5S6.813,4,11.5,4h1c4.687,0,8.5,3.813,8.5,8.5S17.187,21,12.5,21z M11.5,8
-      				C9.019,8,7,10.019,7,12.5S9.019,17,11.5,17h1c2.481,0,4.5-2.019,4.5-4.5S14.981,8,12.5,8H11.5z"/>
-      		</g>
-      		<g>
-      			<path d="M12.5,68h-1C6.813,68,3,64.187,3,59.5S6.813,51,11.5,51h1c4.687,0,8.5,3.813,8.5,8.5S17.187,68,12.5,68z M11.5,55
-      				C9.019,55,7,57.019,7,59.5S9.019,64,11.5,64h1c2.481,0,4.5-2.019,4.5-4.5S14.981,55,12.5,55H11.5z"/>
-      		</g>
-      		<g>
-      			<path d="M12.5,45h-1C6.813,45,3,41.187,3,36.5S6.813,28,11.5,28h1c4.687,0,8.5,3.813,8.5,8.5S17.187,45,12.5,45z M11.5,32
-      				C9.019,32,7,34.019,7,36.5S9.019,41,11.5,41h1c2.481,0,4.5-2.019,4.5-4.5S14.981,32,12.5,32H11.5z"/>
-      		</g>
-      	</g>
-      </g>
-      </svg>
-    </a> -->
 
     </div>
-    <%= link_to 'My Lists', lists_path, class: "navbar-text navbar-center" %>
+
     <% if current_user %>
-      <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.full_name, user_path(current_user) %></p>
-      <% end %>
+      <p class="navbar-text navbar-right sign-out"><%= link_to 'Sign Out', '/sign-out' %> </p>
+      <p class="navbar-text navbar-right current-user"><%= link_to current_user.full_name, user_path(current_user) %></p>
+      <p class="navbar-text navbar-right my-lists"><%= link_to 'My Lists', lists_path %> </p>
+    <% else %>
+      <p class="navbar-text navbar-right"><%= link_to 'Sign In', '/sign-in' %></p>
+      <p class="navbar-text navbar-right"><%= link_to 'Sign Up', new_identity_path %></p>
+    <% end %>
     </div>
+  </div>
   </nav>
-<div class="lists">
-  <%= yield %>
-</div>
-
-
+  <div class="lists">
+    <%= yield %>
+  </div>
 </body>
+
+<script type="text/javascript">
+  // $(function(){
+  //
+  //   $('.nav-expand').hover(function(){
+  //     $('.nav-expand').hide();
+  //     $('.nav-content').show();
+  //   });
+  //
+  //   // $('nav').mouseout(function(){
+  //   //   $('.nav-content').hide();
+  //   //   $('.nav-expand').show();
+  //   // });
+  //
+  // });
+</script>
 </html>
