@@ -1,41 +1,43 @@
-<div class="container">
-<div class="page-header">
-
-  <div class="pull-right">
-    <%= link_to "Create List", new_list_path, class: 'btn btn-primary' %>
+<h1 class="page-title">My lists</h1>
+<div class="row">
+  <div class="col-md-2 new-list-button">
+    <%= link_to "Create New List", new_list_path, class: 'btn btn-primary' %>
   </div>
-  <h1>My lists</h1>
+
+  <div class="user-lists col-md-8">
+    <ul>
+      <li><a href="#this_month"><h2> <%= @current_month_name %> Lists </h2></a></li>
+      <li><a href="#last_month"><h2> <%= @last_month_name %> Lists </h2></a></li>
+      <li><a href="#month_before_last"><h2> <%= @month_before_last_name %> Lists </h2></a></li>
+    </ul>
+
+     <div id="this_month">
+       <% @current_lists.each do |list| %>
+       <p>
+         <%= link_to list.name, list_path(list) %>
+       </p>
+       <% end %>
+     </div>
+     <div id="last_month">
+       <% @last_month_lists.each do |list| %>
+       <p>
+         <%= link_to list.name, list_path(list) %>
+       </p>
+       <% end %>
+     </div>
+     <div id="month_before_last">
+       <% @month_before_last_lists.each do |list| %>
+       <p>
+         <%= link_to list.name, list_path(list) %>
+       </p>
+       <% end %>
+     </div>
+  </div>
 </div>
-<div class="user-lists">
-
-   <div class="column-center">
-     <h2> <%= @last_month_name %> Lists </h2>
-     <% @last_month_lists.each do |list| %>
-     <p>
-       <%= link_to list.name, list_path(list) %>
-     </p>
-     <% end %>
-
-   </div>
-   <div class="column-left">
-     <h2> <%= @current_month_name %> Lists </h2>
-     <% @current_lists.each do |list| %>
-     <p>
-       <%= link_to list.name, list_path(list) %>
-     </p>
-     <% end %>
-   </div>
-   <div class="column-right">
-     <h2> <%= @month_before_last_name %> Lists </h2>
-     <% @month_before_last_lists.each do |list| %>
-     <p>
-       <%= link_to list.name, list_path(list) %>
-     </p>
-     <% end %>
-   </div>
 
 
-
-
-</div>
-</div>
+<script>
+  $(function() {
+    $( ".user-lists" ).tabs();
+  });
+</script>

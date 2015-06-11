@@ -3,13 +3,12 @@ $(function(){
     shopping.beginShopping();
   });
 
-  $('.buttons').on('click', '.got-it, .skip-it', function (e) {
+  $('.buttons').on('click', '#gotIt, #skipIt', function (e) {
     e.preventDefault();
 
     var status = $(this)[0].className;
     var url = $(this).parent().parent().data('item-url');
-
-    if(status == "got-it"){
+    if(status == "got-it btn btn-primary"){
       shopping.slideItem("left");
       shopping.updateItem(url, "purchased");
     }

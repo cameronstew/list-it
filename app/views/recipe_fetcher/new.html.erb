@@ -1,6 +1,6 @@
 <h1 class="page-title">Search for recipes</h1>
 
-
+<div class="recipe-search row">
   <div class="col-md-4 col-md-offset-4" id='home'>
     <form role="search">
          <div class="form-group">
@@ -8,10 +8,12 @@
          </div>
          <div class='text-center'>
 
-           <button type="submit" class="btn btn-default" id='home_search' data-toggle="modal" data-target="#myModal">Search</button>
+           <button type="submit" class="btn btn-primary" id='home_search' data-toggle="modal" data-target="#myModal">Search</button>
          </div>
     </form>
   </div>
+</div>
+
 
   <script type="text/javascript">
   $(function(){
@@ -21,9 +23,6 @@
       var search_params = $('#search_field').val();
       var url = '/recipes/search/'+search_params;
       window.location.href = url;
-      // $.get(url, function(recipes){
-      //   console.log(recipes);
-      // });
     });
 
   });

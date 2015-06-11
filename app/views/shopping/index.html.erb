@@ -1,6 +1,9 @@
-<div class="shopping-items col-md-6 col-md-offset-3">
-  <!-- <button type="button" name="button" class="btn btn-primary">Begin Shopping</button> -->
+
+<div class="col-md-2 begin-shopping-button">
   <button type="button" name="button" class="btn btn-primary" id="begin-shopping">Begin Shopping</button>
+</div>
+
+<div class="shopping-items col-md-6 col-md-offset-1">
   <div class="all-items">
     <% @list.items.each do |item| %>
       <div class="item" data-item-url="<%= item_path(item) %>">
@@ -9,8 +12,8 @@
           <%= item.description %>
         </p>
         <div class="buttons">
-          <button type="button" name="button" class="got-it"><span class="glyphicon glyphicon-ok"></span>Got It</button>
-          <button type="button" name="button" class="skip-it"><span class="glyphicon glyphicon-remove"></span>Skip It</button>
+          <button type="button" name="button" class="got-it btn btn-primary" id="gotIt"><span class="glyphicon glyphicon-ok"></span>Got It</button>
+          <button type="button" name="button" class="skip-it btn btn-primary" id="skipIt"><span class="glyphicon glyphicon-remove"></span>Skip It</button>
         </div>
       </div>
     <% end  %>
@@ -26,7 +29,7 @@
         <% end %>
       </ul>
       <p>
-        <button type="button" name="button" id="submit-list">Submit List</button>
+        <button type="button" name="button" class="btn btn-primary" id="submit-list">Submit List</button>
       </p>
     </div>
   </div>

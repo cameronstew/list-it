@@ -10,24 +10,24 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top color-me">
 
     <div class="container">
-      <div class="nav-expand">
-        ListIt
-      </div>
+      <span class="nav-expand">
+        <a href="/welcome">List It</a>
+      </span>
       <div class="nav-content">
 
 
       <div class="navbar-header">
-      <a class="navbar-brand" href="/">
+      <!-- <a class="navbar-brand" href="/welcome">
         ListIt
-      </a>
+      </a> -->
 
     </div>
 
     <% if current_user %>
-      <p class="navbar-text navbar-right sign-out"><%= link_to 'Sign Out', '/sign-out' %> </p>
+      <p class="navbar-text navbar-right sign-out"><%= link_to 'Sign Out', '/sign-out' %></p>
       <p class="navbar-text navbar-right current-user"><%= link_to current_user.full_name, user_path(current_user) %></p>
       <p class="navbar-text navbar-right my-lists"><%= link_to 'My Lists', lists_path %> </p>
     <% else %>
@@ -43,18 +43,11 @@
 </body>
 
 <script type="text/javascript">
-  // $(function(){
-  //
-  //   $('.nav-expand').hover(function(){
-  //     $('.nav-expand').hide();
-  //     $('.nav-content').show();
-  //   });
-  //
-  //   // $('nav').mouseout(function(){
-  //   //   $('.nav-content').hide();
-  //   //   $('.nav-expand').show();
-  //   // });
-  //
-  // });
+  $(function(){
+      var colors = ["#f83d62", "#fe7f1b", "#ba66b2", "#dde61a", "#1bb642", "#31a1db", "#ff1d8e"],
+      selectedColor = colors[Math.floor(Math.random()*colors.length)]
+      header = $(".color-me");
+      header.css("background-color", selectedColor);
+  });
 </script>
 </html>
