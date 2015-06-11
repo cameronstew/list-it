@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  # get '/login' => 'sessions#new'
   get '/sign-up' => 'sessions#new'
-  # get '/sign-out' => 'sessions#destroy'
 
   get '/sign-in' => 'sessions#new', as: :signin
-  # get '/sign-up' => 'identities#new'
-  # post '/login' => 'sessions#create'
 
 
   get '/auth/:provider/callback' => 'sessions#create'
@@ -16,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/sign-out' => 'sessions#destroy', as: :signout
 
+  get '/new-list' => 'lists#create_list'
 
   get '/shopping/:id' => 'shopping#index'
   get 'shopping/status/:id' => 'items#item_status'
