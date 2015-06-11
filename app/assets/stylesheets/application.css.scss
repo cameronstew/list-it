@@ -12,9 +12,9 @@
 
 
 // GENERAL SETTINGS
-.wtvr{
-  background-color: rgba(88,88,88,0.8);
-}
+// .wtvr{
+//   background-color: rgba(88,88,88,0.8);
+// }
 
 
 *, *:before, *:after {
@@ -289,7 +289,8 @@ body{
 //create new list
 
 .new_list,
-.edit_list{
+.edit_list,
+.wtvr{
   background-color: rgba(88,88,88,0.8);
   padding: 3%;
 }
