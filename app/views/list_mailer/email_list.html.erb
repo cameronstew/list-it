@@ -3,14 +3,21 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h1>Hi <%= @recipient %>,</h1>
-    <p>
-      You've just been sent a list. Please follow the link below to access it.
-    </p>
-    <p>
-       <%= @url %>
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+  <body stlye="background-color:#d3d3d3;">
+    <div style="margin: 0 30px;">
+      <h1 style="color:turquoise;">Hi <%= @recipient %>,</h1>
+      <p>
+        You've just been sent a list. Please follow the link below to access it.
+      </p>
+      <p>
+         <%= @url %>
+      </p>
+      <p>Thanks for joining and have a great day!</p>
+
+      <p>Love,</p>
+      <p>
+        You friends at List It
+      </p>
+    </div>
   </body>
 </html>
