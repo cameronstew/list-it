@@ -10,7 +10,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Maiden+Orange|Pompiere);
 
-// font-family: 'Pompiere', cursive;
 
 // GENERAL SETTINGS
 .wtvr{
@@ -290,7 +289,7 @@ body{
 //create new list
 
 .new_list,
-.edit_list
+.edit_list,
 #home{
   background-color: rgba(88,88,88,0.8);
   padding: 3%;
@@ -467,6 +466,7 @@ a:visited{
   height: 100%;
   vertical-align: top;
   background:rgba(0,0,0,0.6);
+  float:right;
 }
 
 
@@ -488,13 +488,9 @@ a:visited{
 
 
 .recipe-title {
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  width: 100%;
    color:#81C14B;
-  font-size: 30px;
-  float:right;
+  font-size: 25px;
+  float:left;
   // font-family: 'Federo', sans-serif;
 }
 
