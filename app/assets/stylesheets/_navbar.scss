@@ -1,0 +1,40 @@
+/* navbar */
+
+.nav-content{
+  display:none;
+}
+.navbar-brand{
+  padding: 0;
+}
+
+.navbar{
+  font-size: 30pt;
+  color: white;
+}
+.navbar-brand:hover .svg-image-home-logo{
+  fill:green;
+}
+
+.navbar:hover .nav-content{
+  display:inline;
+}
+
+
+.brand{
+  font-family: 'Englebert', sans-serif;;
+  text-align:center;
+  white:green;
+}
+
+.navbar-text{
+  margin: 0 5px;
+}
+
+.navbar-right a{
+  color: #A5CBC3;
+}
+
+.navbar-default .navbar-text{
+  color:turquoise;
+  padding:2%;
+}

@@ -1,0 +1,56 @@
+
+//my lists
+
+.new-list-button,
+.begin-shopping-button{
+  text-align:center;
+  margin: 1%  0;
+}
+
+.user-lists{
+  text-align:center;
+}
+
+
+.ui-tabs .ui-tabs-panel {
+  display: block;
+  border-width: 0;
+  padding: 1em 1.4em;
+  background: rgba(88,88,88,0.8);
+}
+
+.ui-widget-content a {
+  color: white;
+}
+.ui-widget-content a:hover {
+  color: turquoise;
+}
+.ui-widget-content {
+  border: none;
+  background:transparent;
+}
+
+.ui-widget {
+  font-family: 'Pompiere', cursive;
+}
+
+.ui-tabs .ui-tabs-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.ui-widget-header {
+  background:none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: none;
+  background: #d3d3d3;
+  font-weight: normal;
+  color: #81C14B;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  background-color: #81C14B;
+  color:white;
+}

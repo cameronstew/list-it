@@ -1,0 +1,87 @@
+/*shopping */
+
+.all-items{
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+}
+
+.item{
+  display:none;
+  text-align: center;
+  min-height: 90%;
+  border: 2px solid green;
+  border-radius: 30px;
+}
+
+.list-review{
+  display: none;
+  background-color: rgba(0,0,0,0.8);
+  color:white;
+  padding: 5%;
+}
+.list-review ul{
+  text-align: left;
+}
+
+.item p{
+  margin: 0 0 0;
+  padding: 20% 0 50%;
+  background-color: rgba(0,0,0,0.8);
+  font-size: 55px;
+  color:white;
+}
+
+.shopping-items{
+  text-align:center;
+}
+
+
+.buttons{
+  background-color: rgba(0,0,0,0.8);
+  padding: 0 0 5%;
+}
+
+#begin-shopping{
+  padding: 15% 28%;
+  font-size: 40pt;
+}
+
+.begin-shopping-button{
+  margin-top: 40px;
+}
+
+
+
+.got-it,
+.skip-it{
+  padding: 10%;
+  border: thin solid #d3d3d3;
+  border-radius: 5px;
+  background-color: white;
+  margin-left: 5%;
+}
+
+.glyphicon-remove{
+  color: darkred;
+}
+.glyphicon-remove:hover{
+  color: red;
+}
+
+.recipe-search{
+  background-color: rgba(88, 88, 88, 0.8);
+  padding: 5%;
+}
+
+.thank-you{
+  display:none;
+  background-color: rgba(88,88,88,0.8);
+  text-align: center;
+  padding: 10%;
+}
+
+.buttons .btn-primary, .buttons .btn-primary:hover, .buttons .btn-primary:active{
+  font-size: 30pt;
+  padding: 2% 10%;
+}

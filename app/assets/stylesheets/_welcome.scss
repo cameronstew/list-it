@@ -1,0 +1,39 @@
+/* welcome page */
+
+.list-it{
+  font-family: 'Maiden Orange', cursive;
+  color:turquoise;
+  font-weight:bold;
+  font-size: 40pt;
+}
+
+.welcome{
+  font-family: 'Pompiere', cursive;
+    font-size: 28px;
+    padding: 57px;
+    background-color: rgba(88,88,88,0.8);
+    color: white;
+    padding: 15px 30% 5%;
+    box-shadow: 9px 6px 14px #888888;
+  }
+
+.welcome h1{
+  font-size: 48px;
+}
+
+  .welcome a {
+    color:white;
+  }
+
+  .welcome a:hover{
+    text-decoration: none;
+  }
+
+
+  .intro{
+    margin: 5% 5%;
+  }
+
+  .get-started{
+    margin: 10% 10%;
+  }

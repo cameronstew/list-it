@@ -10,13 +10,22 @@
 
 @import url(https://fonts.googleapis.com/css?family=Maiden+Orange|Pompiere);
 
+@import 'welcome';
+@import 'navbar';
+
+@import 'choose_new_list';
+@import 'create_new_list';
+@import 'list_show';
+@import 'my_lists';
+@import 'recipes';
+@import 'user_auth';
+
+
+@import 'shopping';
+@import 'email_form';
+@import 'media_queries';
 
 // GENERAL SETTINGS
-// .wtvr{
-//   background-color: rgba(88,88,88,0.8);
-// }
-
-
 *, *:before, *:after {
   border-sizing: border-box;
 }
@@ -29,6 +38,10 @@ a {
 a:hover{
   text-decoration: none;
   color:turquoise;
+}
+
+a:visited{
+  text-decoration:none;
 }
 
 body{
@@ -44,99 +57,16 @@ body{
 }
 
 
-/* welcome page */
-
-.list-it{
-  font-family: 'Maiden Orange', cursive;
-  color:turquoise;
-  font-weight:bold;
-  font-size: 40pt;
-}
-
-.welcome{
-  font-family: 'Pompiere', cursive;
-    font-size: 28px;
-    padding: 57px;
-    background-color: rgba(88,88,88,0.8);
-    color: white;
-    padding: 15px 30% 5%;
-    box-shadow: 9px 6px 14px #888888;
-  }
-
-.welcome h1{
-  font-size: 48px;
-}
-
-  .welcome a {
-    color:white;
-  }
-
-  .welcome a:hover{
-    text-decoration: none;
-  }
-
-
-  .intro{
-    margin: 5% 5%;
-  }
-
-  .get-started{
-    margin: 10% 10%;
-  }
-
-
-//end welcome
-
-//navbar
-
-.nav-content{
-  display:none;
-}
-.navbar-brand{
-  padding: 0;
-}
-
-.navbar{
-  font-size: 30pt;
-  color: white;
-}
-.navbar-brand:hover .svg-image-home-logo{
-  fill:green;
-}
-
-.navbar:hover .nav-content{
-  display:inline;
-}
-
-
-.brand{
-  font-family: 'Englebert', sans-serif;;
-  text-align:center;
-  white:green;
-}
-
-.navbar-text{
-  margin: 0 5px;
-}
-// .navbar-right{
-//   padding: 33px 20px;
-//
-// }
-.navbar-right a{
-  color: #A5CBC3;
-}
-
-.navbar-default .navbar-text{
-  color:turquoise;
-  padding:2%;
-}
-
-/* end navbar */
-
-
-
 .page-header{
   text-align: center;
+}
+
+.page-title{
+  color:#81C14B;
+  // color:#EFFFC8;
+  font-family: 'Pompiere', cursive;
+  margin-left: 20px;
+  font-size: 50pt;
 }
 
 .btn-primary,
@@ -144,268 +74,6 @@ body{
   background-color:#81C14B;
 }
 
-.column-left{ float: left; width: 33%; }
-.column-right{ float: right; width: 33%; }
-.column-center{ display: inline-block; width: 33%; }
-
-//email form
-.send-email-button{
-  text-align:center;
-}
-
-.email-form{
-  background-color: rgba(0,0,0,0.5);
-}
-
-//shopping
-
-.all-items{
-  overflow: hidden;
-  position: relative;
-  border-radius: 30px;
-}
-
-.item{
-  display:none;
-  text-align: center;
-  min-height: 90%;
-  border: 2px solid green;
-  border-radius: 30px;
-}
-
-.list-review{
-  display: none;
-  background-color: rgba(0,0,0,0.8);
-  color:white;
-  padding: 5%;
-}
-.list-review ul{
-  text-align: left;
-}
-
-.item p{
-  margin: 0 0 0;
-  padding: 20% 0 50%;
-  background-color: rgba(0,0,0,0.8);
-  font-size: 55px;
-  color:white;
-}
-
-.shopping-items{
-  text-align:center;
-}
-
-
-
-.buttons{
-  background-color: rgba(0,0,0,0.8);
-  padding: 0 0 5%;
-}
-
-#begin-shopping{
-  padding: 15% 28%;
-  font-size: 40pt;
-}
-
-.begin-shopping-button{
-  margin-top: 40px;
-}
-
-
-
-.got-it,
-.skip-it{
-  padding: 10%;
-  border: thin solid #d3d3d3;
-  border-radius: 5px;
-  background-color: white;
-  margin-left: 5%;
-}
-
-.glyphicon-remove{
-  color: darkred;
-}
-.glyphicon-remove:hover{
-  color: red;
-}
-
-.recipe-search{
-  background-color: rgba(88, 88, 88, 0.8);
-  padding: 5%;
-}
-
-.thank-you{
-  display:none;
-  background-color: rgba(88,88,88,0.8);
-  text-align: center;
-  padding: 10%;
-}
-
-.buttons .btn-primary, .buttons .btn-primary:hover, .buttons .btn-primary:active{
-  font-size: 30pt;
-  padding: 2% 10%;
-}
-
-//choose new list
-.choose-list{
-  background-color: rgba(88,88,88,0.8);
-}
-.new-list-text{
-  color:white;
-  display:block;
-  float:right;
-  font-size: 33px;
-}
-
-.create-list{
-  padding: 45px;
-  height: 235px;
-  text-align:center;
-  color:#EFFFC8;
-}
-
-.create-list .svg-image{
-  fill:white;
-}
-.create-list:hover .svg-image{
-  fill:turquoise;
-}
-.create-list:hover .new-list-text{
-  color:turquoise;
-}
-
-.make-new-list{
-  padding: 20px;
-  margin: 0px 81% 0 10%;
-  float: left;
-  color: #81C14B;
-  width: 100%;
-}
-
-
- //end new list
-
-
-//create new list
-
-.new_list,
-.edit_list,
-.wtvr{
-  background-color: rgba(88,88,88,0.8);
-  padding: 3%;
-}
-
-.new-list a,
-.edit_list a{
-  text-decoration: none;
-}
-
-
-.field{
-  font-size: 22px;
-}
-
-.form-control{
-  font-size: 20px;
-}
-
-
-
-
- //list show
- .list-show{
-  background-color: rgba(88,88,88,0.8);
-  color: white;
-  text-align:center;
-  padding: 3%;
- }
-
-
- .list{
-   margin-bottom: 50px;
-   font-family: 'Maiden Orange', cursive;
-   font-size: 40px;
- }
-
- .quantity{
-   font-size: 27px;
- }
-
-
- .email-list a{
-   color:white;
- }
-
-
-//end list show
-
-
-//my lists
-
-.new-list-button,
-.begin-shopping-button{
-  text-align:center;
-  margin: 1%  0;
-}
-
-.user-lists{
-  text-align:center;
-}
-
-
-.ui-tabs .ui-tabs-panel {
-  display: block;
-  border-width: 0;
-  padding: 1em 1.4em;
-  background: rgba(88,88,88,0.8);
-}
-
-.ui-widget-content a {
-  color: white;
-}
-.ui-widget-content a:hover {
-  color: turquoise;
-}
-.ui-widget-content {
-  border: none;
-  background:transparent;
-}
-
-.ui-widget {
-  font-family: 'Pompiere', cursive;
-}
-
-.ui-tabs .ui-tabs-nav {
-  margin: 0;
-  padding: 0;
-}
-
-.ui-widget-header {
-  background:none;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  border: none;
-  background: #d3d3d3;
-  font-weight: normal;
-  color: #81C14B;
-}
-
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-  background-color: #81C14B;
-  color:white;
-}
-//end my lists
-
-
-
-.breadcrumb{
-  background:transparent;
-
-}
-.breadcrumb li{
-  color:#395E66;
-}
 
 .btn-primary, .btn-primary:hover, .btn-primary:visited {
   background-color: #81C14B;
@@ -416,184 +84,22 @@ body{
 
 }
 
-
-
 .btn-primary:active{
   box-shadow: 0px 0px #6b54d3;
 	top: 4px;
 }
 
+.breadcrumb{
+  background:transparent;
 
-.page-title{
-  color:#81C14B;
-  // color:#EFFFC8;
-  font-family: 'Pompiere', cursive;
-  margin-left: 20px;
-  font-size: 50pt;
 }
 
-a:visited{
-  text-decoration:none;
+.breadcrumb li{
+  color:#395E66;
 }
+
+
 
 .modal-header{
   border-bottom:1px solid #81C14B;
 }
-
-// end general
-
-//media queries
-@media (min-width: 895px) {
-  .create-list:hover .new-list-text{
-  float:none;
-  }
-}
-
-
-
-//recipes api
-.recipe-images{
-  margin: 0 10px 10px;
-  float: left;
-  width:100%;
-  height:200px;
-  position: relative;
-  color: white;
-}
-
-.recipe-images img {
-  width: auto;
-  height: 100%;
-  vertical-align: top;
-  background:rgba(0,0,0,0.6);
-  float:right;
-}
-
-
-.recipe-images:after {
-    content:'\A';
-    position:absolute;
-    width:100%; height:100%;
-    top:0; left:0;
-
-    opacity:0.8;
-    transition: all 1s;
-    -webkit-transition: all 1s;
-}
-
-.recipe-images:hover:after {
-  opacity: 0;
-}
-
-
-
-.recipe-title {
-   color:#81C14B;
-  font-size: 25px;
-  float:left;
-  // font-family: 'Federo', sans-serif;
-}
-
-
-.ingredient-list{
-  list-style-type: circle;
-  padding: 0 20px;
-}
-
-
-.modal-dialog{
-  width:60%;
-}
-
-.modal-footer{
-  text-align:center;
-}
-
-
-//end recipes
-
-
-//sign in
-
-main {
-	width: 500px;
-  margin: 0 auto;
-  padding-bottom: 10px;
-	background: white;
-  border-radius: 3px;
-  overflow: hidden;
-}
-main h1 {
-	font-size: 24px;
-  font-weight: normal;
-	background: hsl(120, 40%, 95%);
-  color: hsl(120, 40%, 40%);
-	text-align: center;
-	padding: 20px 0;
-  margin-bottom: 40px;
-}
-
-.session-form {
-  padding: 0 50px;
-}
-
-/*Let's place the label over the input*/
-.session-form div {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.session-form input, .session-form label {
-	width: 400px;
-  display: block;
-	font: inherit;
-  font-size: 16px;
-  line-height: 24px;
-	/*fixed height for FF line height issue.
-	height = 24(lineheight) + 10*2(padding) + 2(border)*/
-	height: 46px;
-	border: 1px solid #999;
-}
-.session-form input {
-  padding: 10px;
-  outline: none;
-  border-radius: 3px;
-}
-
-
-.session-form label {
-	position: absolute;
-  left: 0;
-  top: 0;
-	/*left/right padding will be 2px less, adjusted by padding on .ch*/
-	padding: 10px 8px;
-	border-color: transparent;
-  color: #666;
-	cursor: text;
-}
-
-/*label styles*/
-.ch {
-	display:
-  block;
-  float: left;
-	position: relative; /*for upward animation*/
-	background: white;
-}
-.ch:first-child {
-  padding-left: 2px;
-}
-.ch:last-child {
-  padding-right: 2px;
-}
-
-/*active input label*/
-.focussed {
-	/*when any input is already focussed clicking on it(label) again won't do anything*/
-	pointer-events: none;
-}
-
-
-
-
-//end sign in
