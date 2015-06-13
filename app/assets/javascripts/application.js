@@ -18,4 +18,7 @@
 //= require jquery_nested_form
 //= require bootstrap-sprockets
 //= require shopping
+//= require header
+//= require welcome
+//= require recipes
 //= require_tree .

@@ -13,17 +13,3 @@
     </form>
   </div>
 </div>
-
-
-  <script type="text/javascript">
-  $(function(){
-
-    $('#home_search').on('click', function(e){
-      e.preventDefault();
-      var search_params = $('#search_field').val();
-      var url = '/recipes/search/'+search_params;
-      window.location.href = url;
-    });
-
-  });
-  </script>

@@ -5,29 +5,10 @@
     <p class="intro"><span class="list-it">List It</span> allows you to quickly and easily make grocery lists. Search for recipes or create your own!
       Make a new list now!
     </p>
-
-    <p class="get-started"><a href="#">Get Started <span class="glyphicon glyphicon-menu-right"></span></a></p>
+    <p class="get-started">
+      <a href="#">Get Started <span class="glyphicon glyphicon-menu-right"></span></a>
+    </p>
   </div>
-
 </div>
 
 <%= render('shared/new_list') %>
-
-<script type="text/javascript">
-
-  $(function(){
-    $('.new-list').hide();
-    $('.get-started').on('click', function(){
-      $('.welcome-container').hide('slide', {direction: 'right'}, 1000);
-      setTimeout(function(){
-        $('.new-list').fadeIn(500);
-      }, 1000);
-    });
-
-    $(".get-started").on('mouseenter mouseleave',function( e ) {
-      var el = $(this);
-      if(!el.data("b"))el.effect("bounce", {direction:'up',distance:10,times:1.5} );
-      el.data("b",e.type=="mouseenter"?true:false);
-    });
-  });
-</script>
