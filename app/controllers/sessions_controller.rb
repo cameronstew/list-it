@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     provider = env['omniauth.auth']['provider']
 
     user = User.find_or_create_by(oauth_user_id: uid)
-    user.update_attributes(first_name: first_name, last_name: last_name, email: email, provider: provider) #update_attributes also includes .save
+    # user.update_attributes(first_name: first_name, last_name: last_name, email: email, provider: provider) #update_attributes also includes .save
 
     if user.save
       session[:user_id] = user.id
