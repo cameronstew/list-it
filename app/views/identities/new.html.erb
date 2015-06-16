@@ -1,39 +1,34 @@
 <h1 class="page-title">Sign Up</h1>
 
-<!-- <div class="container">
-  <main>
- -->
-    <%= form_tag("/auth/identity/register", class: 'session-form' ) do %>
-      <% if @identity && @identity.errors.any? %>
-        <div class="error_messages">
-          <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
-          <ul>
-          <% @identity.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </div>
+<%= form_tag("/auth/identity/register", class: 'session-form' ) do %>
+  <% if @identity && @identity.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <ul>
+      <% @identity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
-      <div class="field">
-        <%= text_field_tag :name, @identity.try(:name) %>
-        <%= label_tag :name %><br>
-      </div>
-      <!-- <div class="field">
-        <% text_field_tag :last_name, @identity.try(:last_name) %>
-        <% label_tag :last_name %><br>
-      </div> -->
-      <div class="field">
-        <%= text_field_tag :email, @identity.try(:email) %>
-        <%= label_tag :email %><br>
-      </div>
-      <div class="field">
-        <%= password_field_tag :password %>
-        <%= label_tag :password %><br>
-      </div>
-      <div class="field">
-        <%= password_field_tag :password_confirmation %>
-        <%= label_tag :password_confirmation %><br>
-      </div>
-      <div class="actions"><%= submit_tag "Register", class: 'btn btn-primary' %></div>
-    <% end %>
-  <!-- </main>
-</div> -->
+    </div>
+  <% end %>
+  <div class="field">
+    <%= text_field_tag :name, @identity.try(:name) %>
+    <%= label_tag :name %><br>
+  </div>
+  <!-- <div class="field">
+    <% text_field_tag :last_name, @identity.try(:last_name) %>
+    <% label_tag :last_name %><br>
+  </div> -->
+  <div class="field">
+    <%= text_field_tag :email, @identity.try(:email) %>
+    <%= label_tag :email %><br>
+  </div>
+  <div class="field">
+    <%= password_field_tag :password %>
+    <%= label_tag :password %><br>
+  </div>
+  <div class="field">
+    <%= password_field_tag :password_confirmation %>
+    <%= label_tag :password_confirmation %><br>
+  </div>
+  <div class="actions"><%= submit_tag "Register", class: 'btn btn-primary' %></div>
+<% end %>

@@ -1,24 +1,23 @@
-<div class="container">
-  <main>
-    <h1>Login</h1>
-    <%= form_tag("/auth/identity/callback", class: 'session-form' ) do %>
-      <div class="field">
-        <%= text_field_tag :auth_key %>
-        <%= label_tag :auth_key, "Email", id: 'sign_in_email'%>
-      </div>
-      <div class="field">
-        <%= text_field_tag :password %>
-        <%= label_tag :password, params[:password], id: 'sign_in_password'  %>
-      </div>
-      <div class="actions"><%= submit_tag "Login" %></div>
-    <% end %>
-  </main>
-  <%= link_to 'Facebook Login', '/auth/facebook' %>
+<h1 class="page-title">Login</h1>
+<%= form_tag("/auth/identity/callback", class: 'session-form' ) do %>
+  <div class="field">
+    <%= text_field_tag :auth_key %>
+    <%= label_tag :auth_key, "Email", id: 'sign_in_email'%>
+  </div>
+  <div class="field">
+    <%= password_field_tag :password %>
+    <%= label_tag :password, params[:password], id: 'sign_in_password'  %>
+  </div>
+  <div>
+    <%= submit_tag "Login", class: 'btn btn-primary' %>
+    <% link_to 'Facebook Login', '/auth/facebook' %>
 
-  <p>
-    <strong>Don't use Facebook?</strong>
-    <%= link_to "Create an account", new_identity_path %> or login below.
-  </p>
+  </div>
+<% end %>
 
 
-</div>
+<!-- <p>
+<strong>Don't use Facebook?</strong>
+<%= link_to "Create an account here", new_identity_path %>
+</p>
+-->
