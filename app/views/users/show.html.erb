@@ -1,16 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.first_name %>
-</p>
+<h1 class="page-title">User Profile</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="row update-user-alert" style="display:none;">
+  <div class="col-md-3 col-md-offset-1">
 
+<% if notice %>
+      <p id="notice" class="alert-success"><%= notice %></p>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% end %>
+</div>
+</div>
+<div class="col-md-10 col-md-offset-1">
+  <div class="user-info">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.first_name %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+    <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary' %>
+    <%= link_to 'Back', users_path, class: 'btn btn-primary' %>
+  </div>
+</div>

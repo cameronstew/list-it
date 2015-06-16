@@ -19,6 +19,7 @@
 @import 'my_lists';
 @import 'recipes';
 @import 'user_auth';
+@import 'users';
 
 
 @import 'shopping';
@@ -101,4 +102,10 @@ body{
 
 .modal-header{
   border-bottom:1px solid #81C14B;
+}
+
+
+.alert-success{
+  background: transparent;
+  color: turquoise;
 }

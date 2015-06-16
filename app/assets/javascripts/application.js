@@ -21,4 +21,5 @@
 //= require header
 //= require welcome
 //= require recipes
+//= alerts
 //= require_tree .
