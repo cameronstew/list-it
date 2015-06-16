@@ -1,6 +1,8 @@
-<div class="container">
+<h1 class="page-title">Sign Up</h1>
+
+<!-- <div class="container">
   <main>
-    <h1>Sign Up</h1>
+ -->
     <%= form_tag("/auth/identity/register", class: 'session-form' ) do %>
       <% if @identity && @identity.errors.any? %>
         <div class="error_messages">
@@ -31,7 +33,7 @@
         <%= password_field_tag :password_confirmation %>
         <%= label_tag :password_confirmation %><br>
       </div>
-      <div class="actions"><%= submit_tag "Register" %></div>
+      <div class="actions"><%= submit_tag "Register", class: 'btn btn-primary' %></div>
     <% end %>
-  </main>
-</div>
+  <!-- </main>
+</div> -->
