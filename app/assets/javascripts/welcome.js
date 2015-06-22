@@ -10,6 +10,6 @@
     $('.get-started').on('mouseenter mouseleave',function( e ) {
       var el = $(this);
       if(!el.data('b'))el.effect('bounce', {direction:'up',distance:10,times:1.5} );
-      el.data('b',e.type=='mouseenter'?true:false);
+      el.data('b', e.type == 'mouseenter' ? true : false);
     });
   });

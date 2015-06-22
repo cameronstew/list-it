@@ -1,21 +1,18 @@
+$(function(){
+  $('.recipe-images').on('click', function(){
 
-
-  $(function(){
-    $('.recipe-images').on('click', function(){
-
-      var recipeId = $(this).data('recipe-id');
-      var url = '/recipes/'+recipeId;
-      getRecipe(url);
-
-    });
-
-    $('#home_search').on('click', function(e){
-      e.preventDefault();
-      var search_params = $('#search_field').val();
-      var url = '/recipes/search/'+search_params;
-      window.location.href = url;
-    });
+    var recipeId = $(this).data('recipe-id');
+    var url = '/recipes/'+recipeId;
+    getRecipe(url);
   });
+
+  $('#home_search').on('click', function(e){
+    e.preventDefault();
+    var search_params = $('#search_field').val();
+    var url = '/recipes/search/'+search_params;
+    window.location.href = url;
+  });
+});
 
   function getRecipe(recipeURL){
 
@@ -40,8 +37,8 @@
         $.ajax({
           url: '/lists',
           type: 'POST',
-          data: {ingredients: ingredients, recipeTitle: recipeTitle }
-        }).done(function(newList){
+          data: { ingredients: ingredients, recipeTitle: recipeTitle }
+        }).done(function(newList) {
           var listID = newList.id;
           window.location.href = '/lists/'+listID;
         }).error(function(){

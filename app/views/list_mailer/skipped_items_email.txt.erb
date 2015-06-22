@@ -1,0 +1,14 @@
+Hi <%= @recipient %>,
+===============================================
+
+Your list has been shopped! Below are the items that were not purchased:
+
+<% @skipped_items.each do |key, item| %>
+  <%= item["quantity"] %> <%= item["description"] %>
+<% end %>
+
+Thanks!
+
+Love,
+
+Your friends at List It

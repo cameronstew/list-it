@@ -7,7 +7,7 @@ $(function(){
   	$(this).html(sop + $(this).html().split("").join(scl+sop) + scl);
   	//to prevent space-only spans from collapsing
   	$(".ch:contains(' ')").html("&nbsp;");
-  })
+  });
 
   var d;
   //animation time
@@ -28,7 +28,7 @@ $(function(){
   		$(this).next().removeClass("focussed").children().stop(true).each(function(i){
   			d = i*50;
   			$(this).delay(d).animate({top: 0}, 500, 'easeInOutBack');
-  		})
+  		});
   	}
-  })
-})
+  });
+});
