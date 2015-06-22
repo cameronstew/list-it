@@ -1,5 +1,4 @@
   $(function(){
-    $('.new-list').hide();
     $('.get-started').on('click', function(){
       $('.welcome-container').hide('slide', {direction: 'right'}, 1000);
       setTimeout(function(){
