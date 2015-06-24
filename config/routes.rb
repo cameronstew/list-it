@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get '/test' => 'welcome#test'
+
   get '/sign-up' => 'sessions#new'
 
   get '/sign-in' => 'sessions#new', as: :signin
