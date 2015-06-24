@@ -96,7 +96,7 @@ class ListsController < ApplicationController
       end
 
       if @list.save
-        redirect_to list_path(@list), notice: "List created!"
+        redirect_to list_path(@list)
       else
         render :new
       end
