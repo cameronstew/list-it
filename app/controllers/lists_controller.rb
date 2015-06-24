@@ -10,9 +10,9 @@ class ListsController < ApplicationController
     @last_month_name = (Time.now - 1.month ).strftime("%B")
     @month_before_last_name = (Time.now - 2.month ).strftime("%B")
 
-    @current_lists = List.all.where('extract(month from updated_at) = ?', current_month).order('created_at DESC')
-    @last_month_lists = List.all.where('extract(month from updated_at) = ?', last_month).order('created_at DESC')
-    @month_before_last_lists = List.all.where('extract(month from updated_at) = ?', month_before_last).order('created_at DESC')
+    @current_lists = List.all.where('extract(month from created_at) = ?', current_month).order('created_at DESC')
+    @last_month_lists = List.all.where('extract(month from created_at) = ?', last_month).order('created_at DESC')
+    @month_before_last_lists = List.all.where('extract(month from created_at) = ?', month_before_last).order('created_at DESC')
   end
 
   def show
